@@ -29,8 +29,8 @@
         <Label Grid.Column="1" Grid.Row="2" FontSize="15"  Content="Password"/>
         <PasswordBox x:Name="pb_password" Grid.Column="1" Grid.Row="2" Margin="0 30"/>
 
-        <Button x:Name="btn_login" Grid.Column="1" Grid.Row="3" FontSize="20" Margin="25" Content="Login" Click="btn_login_Click"/>
+        <Button x:Name="btn_login" Grid.Column="1" Grid.Row="3" FontSize="20" Margin="25" Content="Login"/>
 
-        <Label x:Name="lbl_reg" Grid.Column="1" Grid.Row="4" Content="I don't have an account" HorizontalAlignment="Center" MouseDoubleClick="Register"/>
+        <Label x:Name="lbl_reg" Grid.Column="1" Grid.Row="4" Content="I don't have an account" HorizontalAlignment="Center" MouseLeftButtonUp="Register"/>
     </Grid>
 </Window>

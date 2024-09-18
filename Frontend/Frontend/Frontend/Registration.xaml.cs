@@ -15,20 +15,20 @@ using System.Windows.Shapes;
 namespace Frontend
 {
     /// <summary>
-    /// Interaction logic for Login.xaml
+    /// Interaction logic for Registration.xaml
     /// </summary>
-    public partial class Login : Window
+    public partial class Registration : Window
     {
-        public Login()
+        public Registration()
         {
             InitializeComponent();
         }
 
-        private void Register(object sender, RoutedEventArgs e)
+        private void Login(object sender, RoutedEventArgs e)
         {
             this.Close();
-            Registration registration = new Registration();
-            registration.Show(); 
+            Login login = new Login();
+            login.Show(); 
         }
     }
 }

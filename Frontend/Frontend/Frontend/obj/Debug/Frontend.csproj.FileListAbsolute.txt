@@ -15,3 +15,5 @@ C:\Users\Attila\source\repos\etteremProject1\Frontend\Frontend\Frontend\obj\Debu
 C:\Users\Attila\source\repos\etteremProject1\Frontend\Frontend\Frontend\obj\Debug\Frontend.csproj.CoreCompileInputs.cache
 C:\Users\Attila\source\repos\etteremProject1\Frontend\Frontend\Frontend\obj\Debug\Frontend.exe
 C:\Users\Attila\source\repos\etteremProject1\Frontend\Frontend\Frontend\obj\Debug\Frontend.pdb
+C:\Users\Attila\source\repos\etteremProject1\Frontend\Frontend\Frontend\obj\Debug\Registration.g.cs
+C:\Users\Attila\source\repos\etteremProject1\Frontend\Frontend\Frontend\obj\Debug\Registration.baml
