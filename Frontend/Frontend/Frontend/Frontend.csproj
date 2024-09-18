@@ -114,7 +114,6 @@
     <Resource Include="SnackDashLogo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Hamburger.svg" />
     <Resource Include="Images\SnackDashLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

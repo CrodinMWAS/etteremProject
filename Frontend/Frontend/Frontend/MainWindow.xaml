@@ -27,8 +27,8 @@
             </Grid.ColumnDefinitions>
             <Image Source="/SnackDashLogo.png" Width="70" Height="70" HorizontalAlignment="Left" Margin="10 0"/>
             <Label FontSize="40" Foreground="Orange" Content="Menu" FontFamily="pack://application:,,,/Fonts/#burrito" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <Button Grid.Column="2" Margin="20" FontSize="20" Content="Register"/>
-            <Button Grid.Column="3" Margin="20" FontSize="20" Content="Login"/>
+            <Button x:Name="btn_register" Grid.Column="2" Margin="20" FontSize="20" Content="Register" Click="btn_register_Click"/>
+            <Button x:Name="btn_login" Grid.Column="3" Margin="20" FontSize="20" Content="Login" Click="btn_login_Click"/>
         </Grid>
         <Image x:Name="img_logo" Grid.Row="1" Grid.RowSpan="2" Source="/SnackDashLogo.png" Width="150" Height="150">
             <Image.RenderTransform>

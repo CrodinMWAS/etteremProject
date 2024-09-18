@@ -23,7 +23,19 @@ namespace Frontend
         public MainWindow()
         { 
             InitializeComponent(); 
+        } 
+
+        private void btn_login_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
         }
-         
+
+        private void btn_register_Click(object sender, RoutedEventArgs e)
+        {
+            Registration registration = new Registration();
+            registration.Show();
+            
+        }
     }
 }
