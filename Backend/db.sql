@@ -1,4 +1,4 @@
-CREATE DATABASE restaurant CHARACTER SET utf8mb4 COLLATE utf8mb4_hungarian_ci;
+CREATE DATABASE restaurant DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_hungarian_ci;
 
 CREATE TABLE Users (
     ID int AUTO_INCREMENT,
