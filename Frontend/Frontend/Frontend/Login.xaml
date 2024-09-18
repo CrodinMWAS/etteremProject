@@ -31,6 +31,6 @@
 
         <Button x:Name="btn_login" Grid.Column="1" Grid.Row="3" FontSize="20" Margin="25" Content="Login" Click="btn_login_Click"/>
 
-        <Label x:Name="lbl_reg" Grid.Column="1" Grid.Row="4" Content="I don't have an account" HorizontalAlignment="Center"/>
+        <Label x:Name="lbl_reg" Grid.Column="1" Grid.Row="4" Content="I don't have an account" HorizontalAlignment="Center" MouseDoubleClick="Register"/>
     </Grid>
 </Window>
