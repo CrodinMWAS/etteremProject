@@ -1,0 +1,15 @@
+C:\Users\Attila\source\repos\EtteremFrontend\EtteremFrontend\bin\Debug\EtteremFrontend.exe.config
+C:\Users\Attila\source\repos\EtteremFrontend\EtteremFrontend\bin\Debug\EtteremFrontend.exe
+C:\Users\Attila\source\repos\EtteremFrontend\EtteremFrontend\bin\Debug\EtteremFrontend.pdb
+C:\Users\Attila\source\repos\EtteremFrontend\EtteremFrontend\obj\Debug\EtteremFrontend.csproj.AssemblyReference.cache
+C:\Users\Attila\source\repos\EtteremFrontend\EtteremFrontend\obj\Debug\MainWindow.g.cs
+C:\Users\Attila\source\repos\EtteremFrontend\EtteremFrontend\obj\Debug\App.g.cs
+C:\Users\Attila\source\repos\EtteremFrontend\EtteremFrontend\obj\Debug\EtteremFrontend_MarkupCompile.cache
+C:\Users\Attila\source\repos\EtteremFrontend\EtteremFrontend\obj\Debug\EtteremFrontend_MarkupCompile.lref
+C:\Users\Attila\source\repos\EtteremFrontend\EtteremFrontend\obj\Debug\MainWindow.baml
+C:\Users\Attila\source\repos\EtteremFrontend\EtteremFrontend\obj\Debug\EtteremFrontend.g.resources
+C:\Users\Attila\source\repos\EtteremFrontend\EtteremFrontend\obj\Debug\EtteremFrontend.Properties.Resources.resources
+C:\Users\Attila\source\repos\EtteremFrontend\EtteremFrontend\obj\Debug\EtteremFrontend.csproj.GenerateResource.cache
+C:\Users\Attila\source\repos\EtteremFrontend\EtteremFrontend\obj\Debug\EtteremFrontend.csproj.CoreCompileInputs.cache
+C:\Users\Attila\source\repos\EtteremFrontend\EtteremFrontend\obj\Debug\EtteremFrontend.exe
+C:\Users\Attila\source\repos\EtteremFrontend\EtteremFrontend\obj\Debug\EtteremFrontend.pdb
