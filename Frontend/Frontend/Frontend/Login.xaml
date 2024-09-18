@@ -26,7 +26,7 @@
         <Label Grid.Column="1" Grid.Row="1" FontSize="15"  Content="Name"/>
         <TextBox x:Name="tb_name" Grid.Column="1" Grid.Row="1" Margin="0 30"/>
 
-        <Label Grid.Column="1" Grid.Row="2" FontSize="15"  Content="Password"/>
+        <Label Grid.Column="1" Grid.Row="2" FontSize="15"   Content="Password"/>
         <PasswordBox x:Name="pb_password" Grid.Column="1" Grid.Row="2" Margin="0 30"/>
 
         <Button x:Name="btn_login" Grid.Column="1" Grid.Row="3" FontSize="20" Margin="25" Content="Login"/>

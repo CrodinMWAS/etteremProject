@@ -26,16 +26,20 @@
         <Label Grid.Column="1" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Registration"/>
 
         <Label Grid.Column="1" Grid.Row="1" FontSize="15"  Content="Name"/>
-        <TextBox x:Name="tb_name" Grid.Column="1" Grid.Row="1" Margin="0 25"/>
+        <Label x:Name="err_name" Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Right" Foreground="Red" FontSize="10" Content=""/>
+        <TextBox x:Name="tb_name" Grid.Column="1" Grid.Row="1" Margin="0 25" BorderBrush="Black"/>
 
         <Label Grid.Column="1" Grid.Row="2" FontSize="15"  Content="Email Address"/>
-        <TextBox x:Name="tb_email" Grid.Column="1" Grid.Row="3" Margin="0 25"/>
+        <Label x:Name="err_email" Grid.Column="1" Grid.Row="2" HorizontalContentAlignment="Right" Foreground="Red" FontSize="10" Content=""/>
+        <TextBox x:Name="tb_email" Grid.Column="1" Grid.Row="2" Margin="0 25" BorderBrush="Black"/>
 
         <Label Grid.Column="1" Grid.Row="3" FontSize="15"  Content="Password"/>
-        <PasswordBox x:Name="pb_password" Grid.Column="1" Grid.Row="2" Margin="0 25"/>
+        <Label x:Name="err_password" Grid.Column="1" Grid.Row="3" HorizontalContentAlignment="Right" Foreground="Red" FontSize="10" Content=""/>
+        <PasswordBox x:Name="pb_password" Grid.Column="1" Grid.Row="3" Margin="0 25" BorderBrush="Black"/>
 
         <Label Grid.Column="1" Grid.Row="4" FontSize="15"  Content="Confirm Password"/>
-        <PasswordBox x:Name="pb_confirmPassword" Grid.Column="1" Grid.Row="4" Margin="0 25"/>
+        <Label x:Name="err_confirmPassword" Grid.Column="1" Grid.Row="4" HorizontalContentAlignment="Right" Foreground="Red" FontSize="10" Content=""/>
+        <PasswordBox x:Name="pb_confirmPassword" Grid.Column="1" Grid.Row="4" Margin="0 25" BorderBrush="Black"/>
 
         <Button x:Name="btn_login" Grid.Column="1" Grid.Row="5" FontSize="20" Margin="20" Content="Register" Click="btn_login_Click"/>
 
