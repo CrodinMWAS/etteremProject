@@ -8,13 +8,12 @@ namespace Api.Models
 	public class User
 	{
 		[Key]
-		[Required]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)] //Auto Increment
-		[Column("ID")]
+		[Column("userId")]
 		public int Id { get; set; }
 
 		[Required]
-		[Column("name")]
+		[Column("userName")]
 		public string Username { get; set; }
 
 		[Required]
@@ -25,6 +24,8 @@ namespace Api.Models
 		[Required]
 		[Column("password")]
 		public string PasswordHash { get; set; }
+
+		public ICollection<Order> Orders { get; set; }
 
 	}
 }
