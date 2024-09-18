@@ -25,14 +25,14 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Image Source="/SnackDashLogo.png" Width="70" Height="70" HorizontalAlignment="Left" Margin="10 0"/>
-            <Label FontSize="40" Foreground="Orange" Content="Menu" FontFamily="pack://application:,,,/Fonts/#burrito" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <Button x:Name="btn_register" Grid.Column="2" Margin="20" FontSize="20" Content="Register" Click="btn_register_Click"/>
-            <Button x:Name="btn_login" Grid.Column="3" Margin="20" FontSize="20" Content="Login" Click="btn_login_Click"/>
+            <Image Source="Images/SnackDashLogo.png" Width="70" Height="70" HorizontalAlignment="Left" Margin="10 0"/>
+            <Label FontSize="30" Foreground="Orange" Content="Menu" FontFamily="pack://application:,,,/Fonts/#burrito" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <Button x:Name="btn_register" Grid.Column="2" Margin="35 25" FontSize="15" Content="Register" Click="btn_register_Click"/>
+            <Button x:Name="btn_login" Grid.Column="3" Margin="35 25" FontSize="15" Content="Login" Click="btn_login_Click"/>
         </Grid>
-        <Image x:Name="img_logo" Grid.Row="1" Grid.RowSpan="2" Source="/SnackDashLogo.png" Width="150" Height="150">
+        <Image x:Name="img_logo" Grid.Row="1" Grid.RowSpan="2" Source="Images/SnackDashLogo.png" Width="200" Height="200">
             <Image.RenderTransform>
-                <RotateTransform x:Name="rotateTransform" CenterX="75" CenterY="75" />
+                <RotateTransform x:Name="rotateTransform" CenterX="100" CenterY="100" />
             </Image.RenderTransform>
             <Image.Triggers>
                 <EventTrigger RoutedEvent="Image.Loaded">
@@ -50,7 +50,7 @@
         </Image>
         <Label Content="Welcome to SnackDash" FontFamily="pack://application:,,,/Fonts/#burrito" Foreground="Red" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <Label Content="Dash In, Snack Out!" FontFamily="pack://application:,,,/Fonts/#burrito" Margin="0 50 0 0" Foreground="Red" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <TextBlock FontFamily="pack://application:,,,/Fonts/#burrito" TextWrapping="WrapWithOverflow" Margin="10 10 10 0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="2" FontSize="15" HorizontalAlignment="Center">
+        <TextBlock TextWrapping="WrapWithOverflow" Margin="10 10 10 0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="2" FontSize="15" HorizontalAlignment="Center">
             At SnackDash, we know your time is valuable, but that doesn’t mean you should compromise on flavor. 
             <LineBreak/>
             <LineBreak/>
@@ -63,7 +63,7 @@
             No lines, no fuss, just bold flavors that keep you coming back for more.
         </TextBlock>
 
-        <TextBlock FontFamily="pack://application:,,,/Fonts/#burrito" Foreground="Green" TextWrapping="WrapWithOverflow" Margin="10 10 10 0" Grid.Row="3" FontSize="15" HorizontalAlignment="Center">
+        <TextBlock Foreground="Green" TextWrapping="WrapWithOverflow" Margin="10 10 10 0" Grid.Row="3" FontSize="15" HorizontalAlignment="Center">
             Stop by and discover why SnackDash is the perfect choice for your on-the-go cravings. Dash in, snack out, and enjoy!
         </TextBlock>
     </Grid>
