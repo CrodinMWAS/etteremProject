@@ -37,7 +37,7 @@
         <Label Grid.Column="1" Grid.Row="4" FontSize="15"  Content="Confirm Password"/>
         <PasswordBox x:Name="pb_confirmPassword" Grid.Column="1" Grid.Row="4" Margin="0 25"/>
 
-        <Button x:Name="btn_login" Grid.Column="1" Grid.Row="5" FontSize="20" Margin="20" Content="Register"/>
+        <Button x:Name="btn_login" Grid.Column="1" Grid.Row="5" FontSize="20" Margin="20" Content="Register" Click="btn_login_Click"/>
 
         <Label x:Name="lbl_reg" Grid.Column="1" Grid.Row="6" Content="I already have an account" HorizontalAlignment="Center" MouseLeftButtonUp="Login"/>
 

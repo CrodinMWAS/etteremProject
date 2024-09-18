@@ -30,5 +30,18 @@ namespace Frontend
             Login login = new Login();
             login.Show(); 
         }
+
+        private void btn_login_Click(object sender, RoutedEventArgs e)
+        {
+            if (tb_name.Text == "" || tb_email.Text == "" || pb_password.Password == "" || pb_confirmPassword.Password == "")
+            {
+                MessageBox.Show("Ki kell tölteni az összes mezőt");
+                return;
+            }else if (pb_confirmPassword != pb_password)
+            {
+                MessageBox.Show("A jelszó és annak megerősítése nem egyeznek");
+                return;
+            }
+        }
     }
 }
