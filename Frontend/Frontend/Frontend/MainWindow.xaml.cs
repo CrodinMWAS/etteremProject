@@ -21,10 +21,9 @@ namespace Frontend
     public partial class MainWindow : Window
     {
         public MainWindow()
-        {
-            Login login = new Login();
-            login.Show();
-            InitializeComponent();
+        { 
+            InitializeComponent(); 
         }
+         
     }
 }

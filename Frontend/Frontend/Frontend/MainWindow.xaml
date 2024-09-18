@@ -7,8 +7,45 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.ColumnSpan="3" Background="#333">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Welcome to SnackDash – Dash In, Snack Out!" FontFamily="pack://application:,,,/Fonts/#burrito" Foreground="Red" Grid.Column="1" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <Image Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" Width="75" Height="75" />
 
-
+        </Grid>
+        <Image x:Name="img_logo" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Source="/SnackDashLogo.png" Width="150" Height="150">
+            <Image.RenderTransform>
+                <RotateTransform x:Name="rotateTransform" CenterX="75" CenterY="75" />
+            </Image.RenderTransform>
+            <Image.Triggers>
+                <EventTrigger RoutedEvent="Image.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard RepeatBehavior="Forever" AutoReverse="True">
+                            <DoubleAnimation 
+                        Storyboard.TargetName="rotateTransform" 
+                        Storyboard.TargetProperty="Angle" 
+                        From="-20" To="20" 
+                        Duration="0:0:1" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Image.Triggers>
+        </Image>
 
     </Grid>
 </Window>
