@@ -36,7 +36,9 @@ namespace Api.Controllers
 			{
 				Username = model.Username,
 				Email = model.Email,
-				PasswordHash = _passwordService.HashPassword(new User(), model.Password)
+				PasswordHash = _passwordService.HashPassword(new User(), model.Password),
+				FailedAttempts = 0,
+				LockoutEnd = null
 			};
 
 			_databaseContext.Users.Add(user);

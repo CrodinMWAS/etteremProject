@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "s15Ze/fCam08z6ZwPm4GZ6c2IVfnyg5qhwzYnxs8urV9X5nfMZW81Ibww1HKN0YUNqgcesI/FaQvpNl+gOaieA==",
+  "dgSpecHash": "8NHul5McKVQ7VUM++N6lxlr8EQUnG0JpP4evtcvPPkAbSngJ/VV6P6tWXNSQ1GGm/V2qSPDvIRxUm7pCrVkZAQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\fercs\\Desktop\\etteremProject\\Api\\Api.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\fercs\\.nuget\\packages\\aspnetcoreratelimit\\5.0.0\\aspnetcoreratelimit.5.0.0.nupkg.sha512",
     "C:\\Users\\fercs\\.nuget\\packages\\bouncycastle.cryptography\\2.3.1\\bouncycastle.cryptography.2.3.1.nupkg.sha512",
     "C:\\Users\\fercs\\.nuget\\packages\\entityframework\\6.1.0\\entityframework.6.1.0.nupkg.sha512",
     "C:\\Users\\fercs\\.nuget\\packages\\google.protobuf\\3.26.1\\google.protobuf.3.26.1.nupkg.sha512",
@@ -74,6 +75,7 @@
     "C:\\Users\\fercs\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\fercs\\.nuget\\packages\\mysql.data\\9.0.0\\mysql.data.9.0.0.nupkg.sha512",
     "C:\\Users\\fercs\\.nuget\\packages\\mysql.entityframeworkcore\\8.0.5\\mysql.entityframeworkcore.8.0.5.nupkg.sha512",
+    "C:\\Users\\fercs\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
     "C:\\Users\\fercs\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "C:\\Users\\fercs\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "C:\\Users\\fercs\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",

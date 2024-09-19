@@ -4,6 +4,7 @@ using Api.Models;
 using Api.Service;
 using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -51,6 +52,11 @@ namespace Api
 
 			// Configure rate limiting services and other options
 			ConfigureServices(builder.Services, builder.Configuration);
+
+			// Configure logging
+			builder.Logging.ClearProviders();
+			builder.Logging.AddConsole();
+			builder.Logging.AddDebug();
 
 			var app = builder.Build();
 
