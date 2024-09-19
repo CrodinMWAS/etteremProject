@@ -2,10 +2,8 @@
 using Api.Database;
 using Api.Models;
 using Api.Service;
-using Microsoft.AspNet.Identity;
+using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Hosting.Server;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -19,14 +17,16 @@ namespace Api
 			var builder = WebApplication.CreateBuilder(args);
 
 			// Add services to the container.
-
 			builder.Services.AddControllers();
-			// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 			builder.Services.AddEndpointsApiExplorer();
 			builder.Services.AddSwaggerGen();
+
+			// Database configuration
 			builder.Services.AddDbContext<DatabaseContext>(options =>
 			options.UseMySQL("server = localhost; port = 3306; user = asd; password = root; database = restaurant"));
 
+			// Authentication and JWT configuration
 			builder.Services.AddAuthentication(options =>
 			{
 				options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -45,8 +45,12 @@ namespace Api
 				};
 			});
 
+			// Dependency injection for services
 			builder.Services.AddScoped<TokenService>();
 			builder.Services.AddScoped<PasswordService>();
+
+			// Configure rate limiting services and other options
+			ConfigureServices(builder.Services, builder.Configuration);
 
 			var app = builder.Build();
 
@@ -61,10 +65,19 @@ namespace Api
 			app.UseAuthentication();
 			app.UseAuthorization();
 
-
 			app.MapControllers();
 
 			app.Run();
+		}
+
+		// Configure reate limiting
+		public static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
+		{
+			services.AddOptions();
+			services.AddMemoryCache();
+			services.Configure<IpRateLimitOptions>(configuration.GetSection("IpRateLimiting"));
+			services.AddInMemoryRateLimiting();
+			services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 		}
 	}
 }
