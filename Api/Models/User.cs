@@ -25,7 +25,14 @@ namespace Api.Models
 		[Column("password")]
 		public string PasswordHash { get; set; }
 
-		public ICollection<Order> Orders { get; set; }
+		[Required]
+		[Column("failedAttempts")]
+		public int FailedAttempts { get; set; }
 
+		[Required]
+		[Column("lockoutEnd")]
+		public DateTime? LockoutEnd { get; set; }
+
+		public ICollection<Order> Orders { get; set; }
 	}
 }
