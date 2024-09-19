@@ -20,16 +20,14 @@ namespace Api.Models
 		[Column("email")]
 		public string Email { get; set; }
 
-		
+
 		[Required]
 		[Column("password")]
 		public string PasswordHash { get; set; }
 
-		[Required]
 		[Column("failedAttempts")]
 		public int FailedAttempts { get; set; }
 
-		[Required]
 		[Column("lockoutEnd")]
 		public DateTime? LockoutEnd { get; set; }
 

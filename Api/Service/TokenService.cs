@@ -18,24 +18,30 @@ namespace Api.Service
 
 		public string GenerateJwtToken(User user)
 		{
-			var claims = new[]
+			var secretKey = _configuration["JwtSettings:SecretKey"];
+			if (string.IsNullOrEmpty(secretKey) || secretKey.Length < 16)
 			{
-				new Claim(JwtRegisteredClaimNames.Sub, user.Username),
-				new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-				new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-				new Claim(ClaimTypes.Role, "User")
+				throw new ArgumentException("JWT Secret Key must be at least 256 bits (32 characters) long.");
+			}
+
+			var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
+			var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+			var tokenDescriptor = new SecurityTokenDescriptor
+			{
+				Subject = new ClaimsIdentity(new[]
+				{
+					new Claim(ClaimTypes.Name, user.Username),
+					new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+				}),
+				Expires = DateTime.UtcNow.AddHours(1),
+				SigningCredentials = credentials,
+				Issuer = _configuration["JwtSettings:Issuer"],
+				Audience = _configuration["JwtSettings:Audience"]
 			};
 
-			var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
-			var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-			var token = new JwtSecurityToken(
-				_configuration["Jwt:Issuer"],
-				_configuration["Jwt:Audience"],
-				claims,
-				expires: DateTime.UtcNow.AddHours(1),
-				signingCredentials: creds);
-
+			var tokenHandler = new JwtSecurityTokenHandler();
+			var token = tokenHandler.CreateToken(tokenDescriptor);
 			return new JwtSecurityTokenHandler().WriteToken(token);
 		}
 	}

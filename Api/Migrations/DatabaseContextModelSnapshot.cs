@@ -117,7 +117,6 @@ namespace Api.Migrations
                         .HasColumnName("failedAttempts");
 
                     b.Property<DateTime?>("LockoutEnd")
-                        .IsRequired()
                         .HasColumnType("datetime(6)")
                         .HasColumnName("lockoutEnd");
 

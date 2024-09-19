@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Api.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20240919181511_AddAccountLockoutFields")]
+    [Migration("20240919200225_AddAccountLockoutFields")]
     partial class AddAccountLockoutFields
     {
         /// <inheritdoc />
@@ -120,7 +120,6 @@ namespace Api.Migrations
                         .HasColumnName("failedAttempts");
 
                     b.Property<DateTime?>("LockoutEnd")
-                        .IsRequired()
                         .HasColumnType("datetime(6)")
                         .HasColumnName("lockoutEnd");
 

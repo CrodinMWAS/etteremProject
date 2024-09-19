@@ -11,31 +11,27 @@ namespace Api.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<int>(
-                name: "failedAttempts",
-                table: "users",
-                type: "int",
-                nullable: false,
-                defaultValue: 0);
-
-            migrationBuilder.AddColumn<DateTime>(
+            migrationBuilder.AlterColumn<DateTime>(
                 name: "lockoutEnd",
                 table: "users",
                 type: "datetime(6)",
-                nullable: false,
-                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+                nullable: true,
+                oldClrType: typeof(DateTime),
+                oldType: "datetime(6)");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "failedAttempts",
-                table: "users");
-
-            migrationBuilder.DropColumn(
+            migrationBuilder.AlterColumn<DateTime>(
                 name: "lockoutEnd",
-                table: "users");
+                table: "users",
+                type: "datetime(6)",
+                nullable: false,
+                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                oldClrType: typeof(DateTime),
+                oldType: "datetime(6)",
+                oldNullable: true);
         }
     }
 }
