@@ -30,7 +30,6 @@
             <!--Navbar Elements-->
             <Image Source="Images/SnackDashLogo.png" Width="70" Height="70" HorizontalAlignment="Left" Margin="10 0"/>
             <Label FontSize="30" Foreground="Orange" Content="Menu" FontFamily="pack://application:,,,/Fonts/#burrito" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <Button x:Name="btn_register" Grid.Column="2" Margin="35 25" FontSize="15" Content="Register" Click="btn_register_Click"/>
             <Button x:Name="btn_login" Grid.Column="3" Margin="35 25" FontSize="15" Content="Login" Click="btn_login_Click"/>
         </Grid>
         <!--Logo with animation-->
