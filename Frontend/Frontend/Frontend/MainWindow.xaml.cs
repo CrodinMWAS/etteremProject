@@ -24,5 +24,23 @@ namespace Frontend
         {
             InitializeComponent();
         }
+
+        private void ResponsiveText(object sender, SizeChangedEventArgs e)
+        {
+            double newFontSize = Math.Min(e.NewSize.Width / 20, e.NewSize.Height / 10) / 40;
+            btn_login.FontSize = 15 * newFontSize;
+            lbl_Navbar.FontSize = 20 * newFontSize;
+        }
+
+        private void btn_register_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_login_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }

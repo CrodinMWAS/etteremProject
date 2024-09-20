@@ -1,0 +1,15 @@
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.csproj.AssemblyReference.cache
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\MainWindow.g.cs
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\App.g.cs
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend_MarkupCompile.cache
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend_MarkupCompile.lref
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\Frontend.exe.config
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\Frontend.exe
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\Frontend.pdb
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\MainWindow.baml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.g.resources
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.Properties.Resources.resources
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.csproj.GenerateResource.cache
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.csproj.CoreCompileInputs.cache
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.exe
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.pdb
