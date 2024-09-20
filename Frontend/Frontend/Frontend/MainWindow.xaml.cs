@@ -34,11 +34,14 @@ namespace Frontend
         private void ResponsiveText(object sender, SizeChangedEventArgs e)
         {
             double newFontSize = Math.Min(e.NewSize.Width / 20, e.NewSize.Height / 10)/40; 
-            txt1.FontSize = 35 * newFontSize;
-            txt2.FontSize = 15 * newFontSize;
-            txt3.FontSize = 15 * newFontSize;
+            txt1.FontSize = 40 * newFontSize;
+            txt2.FontSize = 20 * newFontSize;
+            txt3.FontSize = 12 * newFontSize;
             txt4.FontSize = 15 * newFontSize;
             btn_login.FontSize = 15 * newFontSize;
+            lbl_Navbar.FontSize = 20 * newFontSize;
+            rotateTransform.CenterX = 125 * newFontSize;
+            rotateTransform.CenterY = 125 * newFontSize;
         }
     }
 }
