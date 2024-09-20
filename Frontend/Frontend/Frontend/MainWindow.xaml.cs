@@ -31,11 +31,14 @@ namespace Frontend
             login.Show();
         }
 
-        private void btn_register_Click(object sender, RoutedEventArgs e)
+        private void ResponsiveText(object sender, SizeChangedEventArgs e)
         {
-            Registration registration = new Registration();
-            registration.Show();
-            
+            double newFontSize = Math.Min(e.NewSize.Width / 20, e.NewSize.Height / 10)/40; 
+            txt1.FontSize = 35 * newFontSize;
+            txt2.FontSize = 15 * newFontSize;
+            txt3.FontSize = 15 * newFontSize;
+            txt4.FontSize = 15 * newFontSize;
+            btn_login.FontSize = 15 * newFontSize;
         }
     }
 }

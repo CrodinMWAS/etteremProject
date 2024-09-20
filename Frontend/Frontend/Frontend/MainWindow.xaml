@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Frontend"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        WindowState="Maximized"> 
+        WindowState="Maximized"
+        SizeChanged="ResponsiveText"> 
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -28,12 +29,24 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <!--Navbar Elements-->
-            <Image Source="Images/SnackDashLogo.png" Width="70" Height="70" HorizontalAlignment="Left" Margin="10 0"/>
+            <Image Source="./Images/SnackDashLogo.png" HorizontalAlignment="Left"/>
             <Label FontSize="30" Foreground="Orange" Content="Menu" FontFamily="pack://application:,,,/Fonts/#burrito" VerticalAlignment="Center" HorizontalAlignment="Right"/>
             <Button x:Name="btn_login" Grid.Column="3" Margin="35 25" FontSize="15" Content="Login" Click="btn_login_Click"/>
-        </Grid>
+        </Grid> 
+            <Grid Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
         <!--Logo with animation-->
-        <Image x:Name="img_logo" Grid.Row="1" Grid.RowSpan="2" Source="Images/SnackDashLogo.png" Width="200" Height="200">
+        <Image x:Name="img_logo" Grid.RowSpan="2" Source="./Images/SnackDashLogo.png">
             <Image.RenderTransform>
                 <RotateTransform x:Name="rotateTransform" CenterX="100" CenterY="100" />
             </Image.RenderTransform>
@@ -52,9 +65,9 @@
             </Image.Triggers>
         </Image>
         <!--Text with slogan on the right-->
-        <Label Content="Welcome to SnackDash" FontFamily="pack://application:,,,/Fonts/#burrito" Foreground="Red" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Content="Dash In, Snack Out!" FontFamily="pack://application:,,,/Fonts/#burrito" Margin="0 50 0 0" Foreground="Red" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <TextBlock TextWrapping="WrapWithOverflow" Margin="10 10 10 0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="2" FontSize="15" HorizontalAlignment="Center">
+        <Label x:Name="txt1" Content="Welcome to SnackDash" FontFamily="pack://application:,,,/Fonts/#burrito" Foreground="Red" Grid.Column="1" Grid.ColumnSpan="2"  FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="txt2" Content="Dash In, Snack Out!" FontFamily="pack://application:,,,/Fonts/#burrito" Margin="0 50 0 0" Foreground="Red" Grid.Column="1" Grid.ColumnSpan="2" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="txt3" TextWrapping="WrapWithOverflow" Margin="10 10 10 0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="1" FontSize="15" HorizontalAlignment="Center">
             At SnackDash, we know your time is valuable, but that doesn’t mean you should compromise on flavor. 
             <LineBreak/>
             <LineBreak/>
@@ -67,8 +80,9 @@
             No lines, no fuss, just bold flavors that keep you coming back for more.
         </TextBlock>
         <!--Text on the bottom left-->
-        <TextBlock Foreground="Green" TextWrapping="WrapWithOverflow" Margin="10 10 10 0" Grid.Row="3" FontSize="15" HorizontalAlignment="Center">
+            <TextBlock x:Name="txt4" Foreground="Green"  TextWrapping="WrapWithOverflow" Margin="10 10 10 0" Grid.Row="2" FontSize="15" HorizontalAlignment="Center">
             Stop by and discover why SnackDash is the perfect choice for your on-the-go cravings. Dash in, snack out, and enjoy!
         </TextBlock>
+        </Grid> 
     </Grid>
 </Window>
