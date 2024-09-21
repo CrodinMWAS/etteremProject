@@ -10,7 +10,7 @@
         SizeChanged="ResponsiveText"
         ResizeMode="NoResize"
         x:Name="main"
-        WindowStyle="None">
+        >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"></ColumnDefinition>
@@ -72,7 +72,14 @@
 
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <local:FoodCard Margin="10" FoodImageSource="{Binding Pic}" FoodNameText="{Binding Name}" FoodPriceText="{Binding Price}"></local:FoodCard>
+                            <local:FoodCard Margin="10"
+                            FoodImageSource="{Binding Pic}" 
+                            FoodNameText="{Binding Name}" 
+                            FoodPriceText="{Binding Price}" 
+                            Allergen1="{Binding Allergen1}"
+                            Allergen2="{Binding Allergen2}"
+                            Allergen3="{Binding Allergen3}"
+                            ></local:FoodCard>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>

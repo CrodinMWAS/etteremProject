@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:Frontend"
              mc:Ignorable="d" 
              x:Name="root"
+             SizeChanged="ResponsiveText"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="Gray">
         <Grid.ColumnDefinitions>
@@ -33,9 +34,9 @@
         <Label x:Name="lblFoodName" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" FontFamily="pack://application:,,,/Font/#Shrikhand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding FoodNameText, ElementName=root}"></Label>
 
         <!--Allergens-->
-        <Label x:Name="lblAllergen1" Grid.Row="4" Grid.Column="1" FontFamily="pack://application:,,,/Font/#Shrikhand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">asd</Label>
-        <Label x:Name="lblAllergen2" Grid.Row="4" Grid.Column="2" FontFamily="pack://application:,,,/Font/#Shrikhand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">asd</Label>
-        <Label x:Name="lblAllergen3" Grid.Row="4" Grid.Column="3" FontFamily="pack://application:,,,/Font/#Shrikhand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">asd</Label>
+        <Label x:Name="lblAllergen1" Grid.Row="4" Grid.Column="1" FontFamily="pack://application:,,,/Font/#Shrikhand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding Allergen1, ElementName=root}"></Label>
+        <Label x:Name="lblAllergen2" Grid.Row="4" Grid.Column="3" FontFamily="pack://application:,,,/Font/#Shrikhand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding Allergen2, ElementName=root}"></Label>
+        <Label x:Name="lblAllergen3" Grid.Row="4" Grid.Column="2" FontFamily="pack://application:,,,/Font/#Shrikhand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding Allergen3, ElementName=root}"></Label>
 
         <!--Food Price-->
         <Label x:Name="lblPrice" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" FontFamily="pack://application:,,,/Font/#Shrikhand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding FoodPriceText, ElementName=root}"></Label>

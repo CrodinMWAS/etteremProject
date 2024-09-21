@@ -44,6 +44,42 @@ namespace Frontend
             set { SetValue(FoodPriceTextProperty, value); }
         }
 
+        // Allergens Property
+        public static readonly DependencyProperty Allergen1Property =
+        DependencyProperty.Register("Allergen1", typeof(string), typeof(FoodCard), new PropertyMetadata(null));
+
+        public string Allergen1
+        {
+            get { return (string)GetValue(Allergen1Property); }
+            set { SetValue(Allergen1Property, value); }
+        }
+
+        public static readonly DependencyProperty Allergen2Property =
+            DependencyProperty.Register("Allergen2", typeof(string), typeof(FoodCard), new PropertyMetadata(null));
+
+        public string Allergen2
+        {
+            get { return (string)GetValue(Allergen2Property); }
+            set { SetValue(Allergen2Property, value); }
+        }
+
+        public static readonly DependencyProperty Allergen3Property =
+            DependencyProperty.Register("Allergen3", typeof(string), typeof(FoodCard), new PropertyMetadata(null));
+
+        public string Allergen3
+        {
+            get { return (string)GetValue(Allergen3Property); }
+            set { SetValue(Allergen3Property, value); }
+        }
+
+        private void ResponsiveText(object sender, SizeChangedEventArgs e)
+        {
+            double newFontSize = Math.Min(e.NewSize.Width / 20, e.NewSize.Height / 10) / 40;
+            lblFoodName.FontSize = 50 * newFontSize;
+
+        }
+
+
         // FoodImage Property
         public static readonly DependencyProperty FoodImageSourceProperty =
             DependencyProperty.Register("FoodImageSource", typeof(ImageSource), typeof(FoodCard), new PropertyMetadata(null));
@@ -52,11 +88,6 @@ namespace Frontend
         {
             get { return (ImageSource)GetValue(FoodImageSourceProperty); }
             set { SetValue(FoodImageSourceProperty, value); }
-        }
-
-        public string asd
-        {
-            get; set;
         }
     }
 }

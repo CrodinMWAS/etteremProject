@@ -39,7 +39,21 @@ namespace Frontend
             {
                 string[] line = reader.ReadLine().Split(';');
                 string[] allergens = line[2].Split(',');
-                MenuItem newItem = new MenuItem(line[0], line[1], allergens, line[3]);
+                MenuItem newItem;
+
+                switch (allergens.Length)
+                {
+                    case 2:
+                        newItem = new MenuItem(line[0], line[1], line[3], allergens[0], allergens[1]);
+                        break;
+                    case 3:
+                        newItem = new MenuItem(line[0], line[1], line[3], allergens[0], allergens[1], allergens[2]);
+                        break;
+                    default:
+                        newItem = new MenuItem(line[0], line[1], line[3]);
+                        break;
+                }
+
                 menuItems.Add(newItem);
             }
             reader.Close();
