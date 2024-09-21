@@ -28,10 +28,10 @@
         </Grid.RowDefinitions>
 
         <!--Food Image-->
-        <Image Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Source="{Binding FoodImageSource, ElementName=root}"></Image>
+        <Image Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Source="{Binding FoodImageSource, ElementName=root}" Stretch="Fill"></Image>
 
         <!--Food Name-->
-        <Label x:Name="lblFoodName" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" FontFamily="pack://application:,,,/Font/#Shrikhand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding FoodNameText, ElementName=root}"></Label>
+        <Label x:Name="lblFoodName" FontWeight="Bold" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" FontFamily="pack://application:,,,/Font/#Shrikhand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding FoodNameText, ElementName=root}"></Label>
 
         <!--Allergens-->
         <Label x:Name="lblAllergen1" Grid.Row="4" Grid.Column="1" FontFamily="pack://application:,,,/Font/#Shrikhand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding Allergen1, ElementName=root}"></Label>

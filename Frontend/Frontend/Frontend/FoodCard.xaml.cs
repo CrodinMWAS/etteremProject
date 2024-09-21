@@ -76,7 +76,11 @@ namespace Frontend
         {
             double newFontSize = Math.Min(e.NewSize.Width / 20, e.NewSize.Height / 10) / 40;
             lblFoodName.FontSize = 50 * newFontSize;
-
+            lblAllergen1.FontSize = 35 * newFontSize;
+            lblAllergen2.FontSize = 35 * newFontSize;
+            lblAllergen3.FontSize = 35 * newFontSize;
+            lblPrice.FontSize = 50 * newFontSize;
+            btnOrder.FontSize = 45 * newFontSize;
         }
 
 

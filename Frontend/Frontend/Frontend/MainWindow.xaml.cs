@@ -39,21 +39,21 @@ namespace Frontend
             {
                 string[] line = reader.ReadLine().Split(';');
                 string[] allergens = line[2].Split(',');
+                string pic = $"{Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(System.IO.Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory)).FullName).FullName).FullName).FullName}\\{line[0]}";
                 MenuItem newItem;
 
                 switch (allergens.Length)
                 {
                     case 2:
-                        newItem = new MenuItem(line[0], line[1], line[3], allergens[0], allergens[1]);
+                        newItem = new MenuItem(pic, line[1], line[3], allergens[0], allergens[1]);
                         break;
                     case 3:
-                        newItem = new MenuItem(line[0], line[1], line[3], allergens[0], allergens[1], allergens[2]);
+                        newItem = new MenuItem(pic, line[1], line[3], allergens[0], allergens[1], allergens[2]);
                         break;
                     default:
-                        newItem = new MenuItem(line[0], line[1], line[3]);
+                        newItem = new MenuItem(pic, line[1], line[3]);
                         break;
                 }
-
                 menuItems.Add(newItem);
             }
             reader.Close();
