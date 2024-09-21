@@ -1,0 +1,20 @@
+Restaurant/MenuPics/DashFries.jpg;Dash Fries;null;$2.99
+Restaurant/MenuPics/SnackSliders.jpg;Snack Sliders;gluten,dairy;$5.99
+Restaurant/MenuPics/CrispyChickenBites.jpg;Crispy Chicken Bites;gluten,dairy;$4.99
+Restaurant/MenuPics/NachoBites.jpg;Loaded Nacho Bites;gluten,dairy,spicy;$3.99
+Restaurant/MenuPics/MozarellaSticks.jpg;Mozza Sticks;gluten,dairy;$4.49
+Restaurant/MenuPics/TurboTacos.jpg;Turbo Tacos;gluten,dairy;$3.49
+Restaurant/MenuPics/SnackWraps.jpg;SnackWraps;gluten,dairy;$4.49
+Restaurant/MenuPics/SpeedyQuesadilla.jpg;Speedy Quesadilla;gluten,dairy;$4.99
+Restaurant/MenuPics/FlashGrilledCheese.jpg;Flash Grilled Cheese;gluten,dairy;$3.99
+Restaurant/MenuPics/DashDogs.jpg;Dash Dogs;gluten; $2.99
+Restaurant/MenuPics/ChurroBites.jpg;Churro Bites;gluten,dairy;$3.49
+Restaurant/MenuPics/CookieDash.jpg;Cookie Dash;gluten,dairy;$2.99
+Restaurant/MenuPics/MilkShakeBlast.jpg;Milkshake Blast;dairy;$3.49
+Restaurant/MenuPics/BrownieBites.jpg;Brownie Bites;gluten,dairy;$3.49
+Restaurant/MenuPics/PretzelBites.jpg;Cinnamon Sugar Pretzel Bites;gluten,dairy;$3.99
+Restaurant/MenuPics/DashLemonade.jpg;Dash Lemonade;null;$1.99
+Restaurant/MenuPics/TropicalSmoothie.jpg;Tropical Smoothie;null;$2.99
+Restaurant/MenuPics/BurstSlush.jpg;Berry Burst Slush;null;$2.49
+Restaurant/MenuPics/MexicanHorchata.jpg;Iced Mexican Horchata;null;$2.49
+Restaurant/MenuPics/SparklingLimeade.jpg;Sparkling Limeade;null;$1.99
