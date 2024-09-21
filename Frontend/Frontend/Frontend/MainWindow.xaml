@@ -8,7 +8,9 @@
         Title="MainWindow" Height="450" Width="800"
         WindowState="Maximized"
         SizeChanged="ResponsiveText"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        x:Name="main"
+        WindowStyle="None">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"></ColumnDefinition>
@@ -60,7 +62,21 @@
             <Label x:Name="lblCategory4" FontFamily="pack://application:,,,/Font/#Shrikhand" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Refreshers</Label>
             <Label x:Name="lblSelectedCategory" FontFamily="pack://application:,,,/Font/#Shrikhand" FontWeight="Bold" Grid.Row="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Category Name</Label>
 
-            
+            <ScrollViewer Grid.Row="3" Grid.ColumnSpan="4" VerticalScrollBarVisibility="Hidden">
+                <ItemsControl ItemsSource="{Binding menuItems, ElementName=main}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel ItemWidth="350" ItemHeight="600" HorizontalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <local:FoodCard Margin="10" FoodImageSource="{Binding Pic}" FoodNameText="{Binding Name}" FoodPriceText="{Binding Price}"></local:FoodCard>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
         </Grid>
 
     </Grid>

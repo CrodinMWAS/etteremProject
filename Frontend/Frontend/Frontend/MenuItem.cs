@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Frontend
 {
-    internal class MenuItem
+    public class MenuItem
     {
         string pic;
         string name;

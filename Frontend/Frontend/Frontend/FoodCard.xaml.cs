@@ -53,5 +53,10 @@ namespace Frontend
             get { return (ImageSource)GetValue(FoodImageSourceProperty); }
             set { SetValue(FoodImageSourceProperty, value); }
         }
+
+        public string asd
+        {
+            get; set;
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -21,11 +22,13 @@ namespace Frontend
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<MenuItem> Menu = new List<MenuItem>();
+        //ObservableCollection<MenuItem> MenuItems = new ObservableCollection<MenuItem>();
+        
+        public ObservableCollection<MenuItem> menuItems { get; set; } = new ObservableCollection<MenuItem>();
         public MainWindow()
         {
-            InitializeComponent();
             getMenu();
+            InitializeComponent();
         }
 
         public void getMenu()
@@ -37,8 +40,9 @@ namespace Frontend
                 string[] line = reader.ReadLine().Split(';');
                 string[] allergens = line[2].Split(',');
                 MenuItem newItem = new MenuItem(line[0], line[1], allergens, line[3]);
-                Menu.Add(newItem);
+                menuItems.Add(newItem);
             }
+            reader.Close();
         }
 
         private void ResponsiveText(object sender, SizeChangedEventArgs e)
