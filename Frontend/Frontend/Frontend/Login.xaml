@@ -25,37 +25,30 @@
         <Label x:Name="lblLogin" Grid.Column="1" FontFamily="pack://application:,,,/Font/#shrikhand"  FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Login"/>
 
         <Label x:Name="lblName" Grid.Column="1" FontFamily="pack://application:,,,/Font/#shrikhand" Grid.Row="1" FontSize="15"  Content="Name"/>
-        <TextBox x:Name="tb_name"  Grid.Column="1" Grid.Row="1" Margin="0 30" BorderThickness="3" Background="#333" VerticalContentAlignment="Center" Foreground="#eaeaea" BorderBrush="Green">
-            <TextBox.Style>
-                <Style TargetType="TextBox">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="TextBox">
-                                <Border CornerRadius="5" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
+        <TextBox x:Name="tb_name"  Grid.Column="1" Grid.Row="1" Margin="0 30" FontWeight="ExtraBold" BorderThickness="3" Background="#333" VerticalContentAlignment="Center" Foreground="#eaeaea" BorderBrush="Green">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
                 </Style>
-            </TextBox.Style>
+            </TextBox.Resources>
         </TextBox>
-
+        
         <Label x:Name="lblPassword" Grid.Column="1" FontFamily="pack://application:,,,/Font/#shrikhand" Grid.Row="2" FontSize="15" Content="Password"/>
-        <PasswordBox x:Name="pb_password" Grid.Column="1" Grid.Row="2" BorderThickness="3" Margin="0 30" Background="#333" VerticalContentAlignment="Center" Foreground="#eaeaea" BorderBrush="Green">
-            <PasswordBox.Style>
-                <Style TargetType="PasswordBox">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="PasswordBox">
-                                <Border CornerRadius="5" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </PasswordBox.Style>
+        <PasswordBox x:Name="pb_password" Grid.Column="1" Grid.Row="2" Margin="0 30" BorderThickness="3" Background="#333" VerticalContentAlignment="Center" Foreground="#eaeaea" BorderBrush="Green">
+            <PasswordBox.Template>
+                <ControlTemplate TargetType="PasswordBox">
+                    <Border 
+                Background="{TemplateBinding Background}" 
+                BorderBrush="{TemplateBinding BorderBrush}" 
+                BorderThickness="{TemplateBinding BorderThickness}" 
+                CornerRadius="10" 
+                SnapsToDevicePixels="True">
+                        <ScrollViewer x:Name="PART_ContentHost" 
+                              Margin="0" 
+                              VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </PasswordBox.Template>
         </PasswordBox>
 
         <Button x:Name="btnLogin" FontFamily="pack://application:,,,/Font/#shrikhand"  Grid.Column="1" Grid.Row="3" FontSize="20" Margin="25" Content="Login" BorderBrush="Red">
