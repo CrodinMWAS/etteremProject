@@ -56,14 +56,15 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Label x:Name="lblCategory1" FontFamily="pack://application:,,,/Font/#Shrikhand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Signature Snacks</Label>
-            <Label x:Name="lblCategory2" FontFamily="pack://application:,,,/Font/#Shrikhand" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Quick Eats</Label>
-            <Label x:Name="lblCategory3" FontFamily="pack://application:,,,/Font/#Shrikhand" Grid.Column="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Sweets and Treats</Label>
-            <Label x:Name="lblCategory4" FontFamily="pack://application:,,,/Font/#Shrikhand" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Refreshers</Label>
-            <Label x:Name="lblSelectedCategory" FontFamily="pack://application:,,,/Font/#Shrikhand" FontWeight="Bold" Grid.Row="1" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Category Name</Label>
+            <TextBlock x:Name="tbCategory1" FontFamily="pack://application:,,,/Font/#Shrikhand" HorizontalAlignment="Center" VerticalAlignment="Center" MouseLeftButtonUp="FilterCategory">Signature Snacks</TextBlock>
+            <TextBlock x:Name="tbCategory2" FontFamily="pack://application:,,,/Font/#Shrikhand" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" MouseLeftButtonUp="FilterCategory">Quick Eats</TextBlock>
+            <TextBlock x:Name="tbCategory3" FontFamily="pack://application:,,,/Font/#Shrikhand" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" MouseLeftButtonUp="FilterCategory">Sweets and Treats</TextBlock>
+            <TextBlock x:Name="tbCategory4" FontFamily="pack://application:,,,/Font/#Shrikhand" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" MouseLeftButtonUp="FilterCategory">Refreshers</TextBlock>
+
+            <TextBlock x:Name="lblSelectedCategory" FontFamily="pack://application:,,,/Font/#Shrikhand" FontWeight="Bold" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">All Categories</TextBlock>
 
             <ScrollViewer Grid.Row="3" Grid.ColumnSpan="4" VerticalScrollBarVisibility="Hidden">
-                <ItemsControl ItemsSource="{Binding menuItems, ElementName=main}">
+                <ItemsControl x:Name="itemsControl" ItemsSource="{Binding menuItems, ElementName=main}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel ItemWidth="350" ItemHeight="600" HorizontalAlignment="Center"/>
@@ -79,6 +80,7 @@
                             Allergen1="{Binding Allergen1}"
                             Allergen2="{Binding Allergen2}"
                             Allergen3="{Binding Allergen3}"
+                            FoodDescription="{Binding Desc}"
                             ></local:FoodCard>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>

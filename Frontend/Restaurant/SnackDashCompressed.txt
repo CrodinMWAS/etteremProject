@@ -1,20 +1,20 @@
-Restaurant/MenuPics/DashFries.jpg;Dash Fries;null;$2.99
-Restaurant/MenuPics/SnackSliders.jpg;Snack Sliders;gluten,dairy;$5.99
-Restaurant/MenuPics/CrispyChickenBites.jpg;Crispy Chicken Bites;gluten,dairy;$4.99
-Restaurant/MenuPics/NachoBites.jpg;Loaded Nacho Bites;gluten,dairy,spicy;$3.99
-Restaurant/MenuPics/MozarellaSticks.jpg;Mozza Sticks;gluten,dairy;$4.49
-Restaurant/MenuPics/TurboTacos.jpg;Turbo Tacos;gluten,dairy;$3.49
-Restaurant/MenuPics/SnackWraps.jpg;SnackWraps;gluten,dairy;$4.49
-Restaurant/MenuPics/SpeedyQuesadilla.jpg;Speedy Quesadilla;gluten,dairy;$4.99
-Restaurant/MenuPics/FlashGrilledCheese.jpg;Flash Grilled Cheese;gluten,dairy;$3.99
-Restaurant/MenuPics/DashDogs.jpg;Dash Dogs;gluten; $2.99
-Restaurant/MenuPics/ChurroBites.jpg;Churro Bites;gluten,dairy;$3.49
-Restaurant/MenuPics/CookieDash.jpg;Cookie Dash;gluten,dairy;$2.99
-Restaurant/MenuPics/MilkShakeBlast.jpg;Milkshake Blast;dairy;$3.49
-Restaurant/MenuPics/BrownieBites.jpg;Brownie Bites;gluten,dairy;$3.49
-Restaurant/MenuPics/PretzelBites.jpg;Cinnamon Sugar Pretzel Bites;gluten,dairy;$3.99
-Restaurant/MenuPics/DashLemonade.jpg;Dash Lemonade;null;$1.99
-Restaurant/MenuPics/TropicalSmoothie.jpg;Tropical Smoothie;null;$2.99
-Restaurant/MenuPics/BurstSlush.jpg;Berry Burst Slush;null;$2.49
-Restaurant/MenuPics/MexicanHorchata.jpg;Iced Mexican Horchata;null;$2.49
-Restaurant/MenuPics/SparklingLimeade.jpg;Sparkling Limeade;null;$1.99
+Signature Snacks;Restaurant/MenuPics/DashFries.jpg;Dash Fries;null;$2.99;Crispy, golden fries with your choice of dipping sauce.
+Signature Snacks;Restaurant/MenuPics/SnackSliders.jpg;Snack Sliders;gluten,dairy;$5.99;Mini burgers with juicy beef patties, melted cheese, and our signature sauce.
+Signature Snacks;Restaurant/MenuPics/CrispyChickenBites.jpg;Crispy Chicken Bites;gluten,dairy;$4.99;Tender chicken pieces, fried to perfection, served with a side of spicy ranch.
+Signature Snacks;Restaurant/MenuPics/NachoBites.jpg;Loaded Nacho Bites;gluten,dairy,spicy;$3.99;Bite-sized nachos topped with melted cheese, jalapeños, salsa, and sour cream.
+Signature Snacks;Restaurant/MenuPics/MozarellaSticks.jpg;Mozza Sticks;gluten,dairy;$4.49;Golden-fried mozzarella sticks with marinara dipping sauce.
+Quick Eats;Restaurant/MenuPics/TurboTacos.jpg;Turbo Tacos;gluten,dairy;$3.49;Soft tacos filled with seasoned beef, lettuce, cheese, and salsa.
+Quick Eats;Restaurant/MenuPics/SnackWraps.jpg;SnackWraps;gluten,dairy;$4.49;Grilled or crispy chicken wrapped with lettuce, cheese, and ranch in a soft tortilla.
+Quick Eats;Restaurant/MenuPics/SpeedyQuesadilla.jpg;Speedy Quesadilla;gluten,dairy;$4.99;Warm, cheesy quesadilla with a side of guacamole and salsa.
+Quick Eats;Restaurant/MenuPics/FlashGrilledCheese.jpg;Flash Grilled Cheese;gluten,dairy;$3.99;A melty, buttery grilled cheese sandwich, served with a side of chips.
+Quick Eats;Restaurant/MenuPics/DashDogs.jpg;Dash Dogs;gluten;$2.99;Hot dog topped with relish, mustard, and ketchup for a classic bite.
+Sweets and Treats;Restaurant/MenuPics/ChurroBites.jpg;Churro Bites;gluten,dairy;$3.49;Warm, cinnamon-sugar churro bites served with a chocolate dipping sauce.
+Sweets and Treats;Restaurant/MenuPics/CookieDash.jpg;Cookie Dash;gluten,dairy;$2.99;Freshly baked chocolate chip cookies for a sweet finish.
+Sweets and Treats;Restaurant/MenuPics/MilkShakeBlast.jpg;Milkshake Blast;dairy;$3.49;Creamy milkshakes in chocolate, vanilla, or strawberry flavors.
+Sweets and Treats;Restaurant/MenuPics/BrownieBites.jpg;Brownie Bites;gluten,dairy;$3.49;Fudgy mini brownies drizzled with chocolate sauce.
+Sweets and Treats;Restaurant/MenuPics/PretzelBites.jpg;Cinnamon Sugar Pretzel Bites;gluten,dairy;$3.99;Soft pretzel bites rolled in cinnamon sugar, served with a vanilla icing dip.
+Refreshers;Restaurant/MenuPics/DashLemonade.jpg;Dash Lemonade;null;$1.99;A refreshing, zesty lemonade perfect for cooling down your snack run.
+Refreshers;Restaurant/MenuPics/TropicalSmoothie.jpg;Tropical Smoothie;null;$2.99;A blend of mango, pineapple, and coconut for a tropical escape.
+Refreshers;Restaurant/MenuPics/BurstSlush.jpg;Berry Burst Slush;null;$2.49;A frozen slush with a mix of strawberries, blueberries, and raspberries.
+Refreshers;Restaurant/MenuPics/MexicanHorchata.jpg;Iced Mexican Horchata;null;$2.49;A cool, creamy rice drink flavored with cinnamon and vanilla.
+Refreshers;Restaurant/MenuPics/SparklingLimeade.jpg;Sparkling Limeade;null;$1.99;Fizzy limeade with a hint of mint for a refreshing twist.

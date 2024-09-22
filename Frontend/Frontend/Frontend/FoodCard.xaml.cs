@@ -76,9 +76,9 @@ namespace Frontend
         {
             double newFontSize = Math.Min(e.NewSize.Width / 20, e.NewSize.Height / 10) / 40;
             lblFoodName.FontSize = 50 * newFontSize;
-            lblAllergen1.FontSize = 35 * newFontSize;
-            lblAllergen2.FontSize = 35 * newFontSize;
-            lblAllergen3.FontSize = 35 * newFontSize;
+            lblAllergen1.FontSize = 37 * newFontSize;
+            lblAllergen2.FontSize = 37 * newFontSize;
+            lblAllergen3.FontSize = 37 * newFontSize;
             lblPrice.FontSize = 50 * newFontSize;
             btnOrder.FontSize = 45 * newFontSize;
         }
@@ -92,6 +92,15 @@ namespace Frontend
         {
             get { return (ImageSource)GetValue(FoodImageSourceProperty); }
             set { SetValue(FoodImageSourceProperty, value); }
+        }
+
+        public static readonly DependencyProperty FoodDescriptionProperty =
+            DependencyProperty.Register("FoodDescription", typeof(string), typeof(FoodCard), new PropertyMetadata(null));
+
+        public string FoodDescription
+        {
+            get { return (string)GetValue(FoodDescriptionProperty); }
+            set { SetValue(FoodDescriptionProperty, value); }
         }
     }
 }

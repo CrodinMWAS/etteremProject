@@ -23,7 +23,7 @@ namespace Frontend
     public partial class MainWindow : Window
     {
         //ObservableCollection<MenuItem> MenuItems = new ObservableCollection<MenuItem>();
-        
+
         public ObservableCollection<MenuItem> menuItems { get; set; } = new ObservableCollection<MenuItem>();
         public MainWindow()
         {
@@ -33,25 +33,36 @@ namespace Frontend
 
         public void getMenu()
         {
-            string filePath = Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(System.IO.Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory)).FullName).FullName).FullName).FullName + "\\Restaurant\\SnackDashCompressed.txt";
+            string basePath = Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(System.IO.Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory)).FullName).FullName).FullName).FullName;
+            string filePath = basePath + "\\Restaurant\\SnackDashCompressed.txt";
             StreamReader reader = new StreamReader(filePath);
             while (!reader.EndOfStream)
             {
                 string[] line = reader.ReadLine().Split(';');
-                string[] allergens = line[2].Split(',');
-                string pic = $"{Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(System.IO.Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory)).FullName).FullName).FullName).FullName}\\{line[0]}";
+                string[] allergens = line[3].Split(',');
+                string pic = $"{basePath}\\{line[1]}";
                 MenuItem newItem;
 
                 switch (allergens.Length)
                 {
+                    case 1:
+                        if (allergens[0] != "null")
+                        {
+                            newItem = new MenuItem(line[0], pic, line[2], line[4], line[5], allergens[0]);
+                        }
+                        else
+                        {
+                            newItem = new MenuItem(line[0], pic, line[2], line[4], line[5]);
+                        }
+                            break;
                     case 2:
-                        newItem = new MenuItem(pic, line[1], line[3], allergens[0], allergens[1]);
+                        newItem = new MenuItem(line[0], pic, line[2], line[4], line[5], allergens[0], allergens[1]);
                         break;
                     case 3:
-                        newItem = new MenuItem(pic, line[1], line[3], allergens[0], allergens[1], allergens[2]);
+                        newItem = new MenuItem(line[0], pic, line[2], line[4], line[5], allergens[0], allergens[1], allergens[2]);
                         break;
                     default:
-                        newItem = new MenuItem(pic, line[1], line[3]);
+                        newItem = new MenuItem(line[0], pic, line[2], line[4], line[5]);
                         break;
                 }
                 menuItems.Add(newItem);
@@ -64,10 +75,10 @@ namespace Frontend
             double newFontSize = Math.Min(e.NewSize.Width / 20, e.NewSize.Height / 10) / 40;
             btnLogin.FontSize = 15 * newFontSize;
             lblNavbar.FontSize = 20 * newFontSize;
-            lblCategory1.FontSize = 10 * newFontSize;
-            lblCategory2.FontSize = 10 * newFontSize;
-            lblCategory3.FontSize = 10 * newFontSize;
-            lblCategory4.FontSize = 10 * newFontSize;
+            tbCategory1.FontSize = 10 * newFontSize;
+            tbCategory2.FontSize = 10 * newFontSize;
+            tbCategory3.FontSize = 10 * newFontSize;
+            tbCategory4.FontSize = 10 * newFontSize;
             lblSelectedCategory.FontSize = 15 * newFontSize;
         }
 
@@ -81,5 +92,39 @@ namespace Frontend
 
         }
 
+        private void FilterCategory(object sender, MouseButtonEventArgs e)
+        {
+            TextBlock textBlock = sender as TextBlock;
+            string textBlockText = textBlock.Text;
+
+            List<MenuItem> filteredItems = new List<MenuItem>();
+
+            if (textBlock.TextDecorations != TextDecorations.Underline)
+            {
+                tbCategory1.TextDecorations = null;
+                tbCategory2.TextDecorations = null;
+                tbCategory3.TextDecorations = null;
+                tbCategory4.TextDecorations = null;
+                textBlock.TextDecorations = TextDecorations.Underline;
+
+                lblSelectedCategory.Text = textBlockText;
+
+                for (int i = 0; i != menuItems.Count; i++)
+                {
+                    if (textBlockText == menuItems[i].Category)
+                    {
+                        filteredItems.Add(menuItems[i]);
+                    }
+                }
+
+                itemsControl.ItemsSource = filteredItems;
+            }
+            else
+            {
+                textBlock.TextDecorations = null;
+                lblSelectedCategory.Text = "All Categories";
+                itemsControl.ItemsSource = menuItems;
+            }
+        }
     }
 }
