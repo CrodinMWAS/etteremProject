@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Frontend"
         mc:Ignorable="d"
-        Title="Login" Height="500" Width="350">
+        Title="Login" Height="500" Width="350" 
+        ResizeMode="NoResize">
     <Grid Background="#eaeaea">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -21,16 +22,74 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Column="1" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Login"/>
-        
-        <Label Grid.Column="1" Grid.Row="1" FontSize="15"  Content="Name"/>
-        <TextBox x:Name="tb_name" Grid.Column="1" Grid.Row="1" Margin="0 30"/>
+        <Label x:Name="lblLogin" Grid.Column="1" FontFamily="pack://application:,,,/Font/#shrikhand"  FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Login"/>
 
-        <Label Grid.Column="1" Grid.Row="2" FontSize="15"   Content="Password"/>
-        <PasswordBox x:Name="pb_password" Grid.Column="1" Grid.Row="2" Margin="0 30"/>
+        <Label x:Name="lblName" Grid.Column="1" FontFamily="pack://application:,,,/Font/#shrikhand" Grid.Row="1" FontSize="15"  Content="Name"/>
+        <TextBox x:Name="tb_name"  Grid.Column="1" Grid.Row="1" Margin="0 30" BorderThickness="3" Background="#333" VerticalContentAlignment="Center" Foreground="#eaeaea" BorderBrush="Green">
+            <TextBox.Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TextBox">
+                                <Border CornerRadius="5" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
 
-        <Button x:Name="btn_login" Grid.Column="1" Grid.Row="3" FontSize="20" Margin="25" Content="Login"/>
+        <Label x:Name="lblPassword" Grid.Column="1" FontFamily="pack://application:,,,/Font/#shrikhand" Grid.Row="2" FontSize="15" Content="Password"/>
+        <PasswordBox x:Name="pb_password" Grid.Column="1" Grid.Row="2" BorderThickness="3" Margin="0 30" Background="#333" VerticalContentAlignment="Center" Foreground="#eaeaea" BorderBrush="Green">
+            <PasswordBox.Style>
+                <Style TargetType="PasswordBox">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="PasswordBox">
+                                <Border CornerRadius="5" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </PasswordBox.Style>
+        </PasswordBox>
 
-        <Label x:Name="lbl_reg" Grid.Column="1" Grid.Row="4" Content="I don't have an account" HorizontalAlignment="Center" MouseLeftButtonUp="Register"/>
+        <Button x:Name="btnLogin" FontFamily="pack://application:,,,/Font/#shrikhand"  Grid.Column="1" Grid.Row="3" FontSize="20" Margin="25" Content="Login" BorderBrush="Red">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Foreground" Value="Goldenrod"/>
+                    <Setter Property="BorderBrush" Value="Red"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border CornerRadius="15" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Red"/>
+                            <Setter Property="BorderBrush" Value="Red"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderBrush" Value="Green"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <Label x:Name="lblReg" FontFamily="pack://application:,,,/Font/#shrikhand" Foreground="Green" Grid.Column="1" Grid.Row="4" Content="I don't have an account" HorizontalAlignment="Center" MouseLeftButtonUp="Register"/>
     </Grid>
 </Window>
