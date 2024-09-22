@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -22,9 +23,9 @@ namespace Frontend
     /// </summary>
     public partial class MainWindow : Window
     {
-        //ObservableCollection<MenuItem> MenuItems = new ObservableCollection<MenuItem>();
+        public ObservableCollection<MenuItem> MenuItems { get; set; } = new ObservableCollection<MenuItem>();
+        public ObservableCollection<MenuItem> CartItems { get; set; } = new ObservableCollection<MenuItem>();
 
-        public ObservableCollection<MenuItem> menuItems { get; set; } = new ObservableCollection<MenuItem>();
         public MainWindow()
         {
             getMenu();
@@ -68,7 +69,7 @@ namespace Frontend
                         newItem = new MenuItem(line[0], pic, line[2], line[4], line[5]);
                         break;
                 }
-                menuItems.Add(newItem);
+                MenuItems.Add(newItem);
             }
             reader.Close();
         }
@@ -78,15 +79,13 @@ namespace Frontend
             double newFontSize = Math.Min(e.NewSize.Width / 20, e.NewSize.Height / 10) / 40;
             btnLogin.FontSize = 15 * newFontSize;
             lblNavbar.FontSize = 20 * newFontSize;
+
             tbCategory1.FontSize = 10 * newFontSize;
             tbCategory2.FontSize = 10 * newFontSize;
             tbCategory3.FontSize = 10 * newFontSize;
             tbCategory4.FontSize = 10 * newFontSize;
-            lblSelectedCategory.FontSize = 15 * newFontSize;
-        }
 
-        private void btn_register_Click(object sender, RoutedEventArgs e)
-        {
+            lblSelectedCategory.FontSize = 15 * newFontSize;
 
         }
 
@@ -118,11 +117,11 @@ namespace Frontend
 
                 lblSelectedCategory.Text = textBlockText;
 
-                for (int i = 0; i != menuItems.Count; i++)
+                for (int i = 0; i != MenuItems.Count; i++)
                 {
-                    if (textBlockText == menuItems[i].Category)
+                    if (textBlockText == MenuItems[i].Category)
                     {
-                        filteredItems.Add(menuItems[i]);
+                        filteredItems.Add(MenuItems[i]);
                     }
                 }
 
@@ -133,8 +132,58 @@ namespace Frontend
                 textBlock.Foreground = new SolidColorBrush(Colors.Black);
                 textBlock.TextDecorations = null;
                 lblSelectedCategory.Text = "All Categories";
-                itemsControl.ItemsSource = menuItems;
+                itemsControl.ItemsSource = MenuItems;
             }
+        }
+
+        private void ItemsControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < itemsControl.Items.Count; i++)
+            {
+                // Get the ContentPresenter for the item
+                var container = itemsControl.ItemContainerGenerator.ContainerFromIndex(i) as ContentPresenter;
+
+                if (container != null)
+                {
+                    // Get the actual FoodCard from the ContentPresenter's content
+                    var foodCard = container.Content as MenuItem; // This gets your original item
+
+                    // If you need to access the FoodCard, you might need to traverse the visual tree
+                    var foodCardVisual = FindVisualChild<FoodCard>(container);
+                    if (foodCardVisual != null)
+                    {
+                        var item = itemsControl.Items[i] as MenuItem;
+                        foodCardVisual.btnOrder.Click += (s, g) => AddToCart(item);
+                    }
+                }
+            }
+        }
+
+        // Helper method to find the visual child of a specified type
+        private T FindVisualChild<T>(DependencyObject parent) where T : DependencyObject
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+            {
+                var child = VisualTreeHelper.GetChild(parent, i);
+                if (child is T)
+                {
+                    return (T)child;
+                }
+                else
+                {
+                    var childOfChild = FindVisualChild<T>(child);
+                    if (childOfChild != null)
+                    {
+                        return childOfChild;
+                    }
+                }
+            }
+            return null;
+        }
+
+        private void AddToCart(MenuItem item)
+        {
+            CartItems.Add(item);
         }
     }
 }

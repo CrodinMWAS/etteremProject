@@ -103,5 +103,10 @@ namespace Frontend
             lblPrice.FontSize = 60 * newFontSize;
             btnOrder.FontSize = 45 * newFontSize;
         }
+
+        private void btnOrder_Click(object sender, RoutedEventArgs e)
+        {
+            //MessageBox.Show(FoodDescription);
+        }
     }
 }

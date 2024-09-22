@@ -45,7 +45,7 @@
         <Label x:Name="lblPrice" FontWeight="Bold" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" FontFamily="pack://application:,,,/Font/#Shrikhand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding FoodPriceText, ElementName=root}" Foreground="Goldenrod"></Label>
 
         <!--Order button-->
-        <Button x:Name="btnOrder" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" FontFamily="pack://application:,,,/Font/#Shrikhand" Content="Order">
+        <Button x:Name="btnOrder" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" FontFamily="pack://application:,,,/Font/#Shrikhand" Content="Order" Click="btnOrder_Click">
             <Button.Style>
                 <Style TargetType="Button">
                     <Setter Property="Background" Value="Transparent"/>
