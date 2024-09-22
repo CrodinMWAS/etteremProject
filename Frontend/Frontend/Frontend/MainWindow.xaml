@@ -11,7 +11,7 @@
         ResizeMode="NoResize"
         x:Name="main"
         >
-    <Grid>
+    <Grid Background="#EAEAEA">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -56,13 +56,64 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <TextBlock x:Name="tbCategory1" FontFamily="pack://application:,,,/Font/#Shrikhand" HorizontalAlignment="Center" VerticalAlignment="Center" MouseLeftButtonUp="FilterCategory">Signature Snacks</TextBlock>
-            <TextBlock x:Name="tbCategory2" FontFamily="pack://application:,,,/Font/#Shrikhand" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" MouseLeftButtonUp="FilterCategory">Quick Eats</TextBlock>
-            <TextBlock x:Name="tbCategory3" FontFamily="pack://application:,,,/Font/#Shrikhand" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" MouseLeftButtonUp="FilterCategory">Sweets and Treats</TextBlock>
-            <TextBlock x:Name="tbCategory4" FontFamily="pack://application:,,,/Font/#Shrikhand" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" MouseLeftButtonUp="FilterCategory">Refreshers</TextBlock>
+            <!--The 4 categories with their styles inside them-->
+            <TextBlock x:Name="tbCategory1" FontFamily="pack://application:,,,/Font/#Shrikhand" HorizontalAlignment="Center" VerticalAlignment="Center" MouseLeftButtonUp="FilterCategory" Text="Signature Snacks">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="FontStyle" Value="Italic"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            
+            <TextBlock x:Name="tbCategory2" FontFamily="pack://application:,,,/Font/#Shrikhand" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" MouseLeftButtonUp="FilterCategory" Text="Quick Eats">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="FontStyle" Value="Italic"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            
+            <TextBlock x:Name="tbCategory3" FontFamily="pack://application:,,,/Font/#Shrikhand" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" MouseLeftButtonUp="FilterCategory" Text="Sweets and Treats">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="FontStyle" Value="Italic"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            
+            <TextBlock x:Name="tbCategory4" FontFamily="pack://application:,,,/Font/#Shrikhand" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" MouseLeftButtonUp="FilterCategory" Text="Refreshers">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="FontStyle" Value="Italic"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
 
+            <!--The actual categories name-->
             <TextBlock x:Name="lblSelectedCategory" FontFamily="pack://application:,,,/Font/#Shrikhand" FontWeight="Bold" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">All Categories</TextBlock>
 
+            <!--This is where all the foodcard components go.-->
+            <!--First We assign a holder element (wrappanel) and then add the foodcards inside them.-->
             <ScrollViewer Grid.Row="3" Grid.ColumnSpan="4" VerticalScrollBarVisibility="Hidden">
                 <ItemsControl x:Name="itemsControl" ItemsSource="{Binding menuItems, ElementName=main}">
                     <ItemsControl.ItemsPanel>

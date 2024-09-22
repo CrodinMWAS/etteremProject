@@ -98,14 +98,17 @@ namespace Frontend
             string textBlockText = textBlock.Text;
 
             List<MenuItem> filteredItems = new List<MenuItem>();
+            TextBlock[] categories = new TextBlock[] { tbCategory1, tbCategory2, tbCategory3, tbCategory4 };
 
             if (textBlock.TextDecorations != TextDecorations.Underline)
             {
-                tbCategory1.TextDecorations = null;
-                tbCategory2.TextDecorations = null;
-                tbCategory3.TextDecorations = null;
-                tbCategory4.TextDecorations = null;
+                foreach (var item in categories)
+                {
+                    item.TextDecorations = null;
+                    item.Foreground = new SolidColorBrush(Colors.Black);
+                }
                 textBlock.TextDecorations = TextDecorations.Underline;
+                textBlock.Foreground = new SolidColorBrush(Colors.DarkRed);
 
                 lblSelectedCategory.Text = textBlockText;
 
@@ -121,6 +124,7 @@ namespace Frontend
             }
             else
             {
+                textBlock.Foreground = new SolidColorBrush(Colors.Black);
                 textBlock.TextDecorations = null;
                 lblSelectedCategory.Text = "All Categories";
                 itemsControl.ItemsSource = menuItems;

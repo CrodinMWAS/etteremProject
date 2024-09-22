@@ -75,11 +75,12 @@ namespace Frontend
         private void ResponsiveText(object sender, SizeChangedEventArgs e)
         {
             double newFontSize = Math.Min(e.NewSize.Width / 20, e.NewSize.Height / 10) / 40;
-            lblFoodName.FontSize = 50 * newFontSize;
-            lblAllergen1.FontSize = 37 * newFontSize;
-            lblAllergen2.FontSize = 37 * newFontSize;
-            lblAllergen3.FontSize = 37 * newFontSize;
-            lblPrice.FontSize = 50 * newFontSize;
+            lblFoodName.FontSize = 60 * newFontSize;
+            lblFoodDescription.FontSize = 32 * newFontSize;
+            lblAllergen1.FontSize = 40 * newFontSize;
+            lblAllergen2.FontSize = 40 * newFontSize;
+            lblAllergen3.FontSize = 40 * newFontSize;
+            lblPrice.FontSize = 60 * newFontSize;
             btnOrder.FontSize = 45 * newFontSize;
         }
 
