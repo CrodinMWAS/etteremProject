@@ -33,16 +33,19 @@ namespace Frontend
 
         public void getMenu()
         {
+            //Getting the base paths for the pics, reading through file
             string basePath = Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(System.IO.Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory)).FullName).FullName).FullName).FullName;
             string filePath = basePath + "\\Restaurant\\SnackDashCompressed.txt";
             StreamReader reader = new StreamReader(filePath);
             while (!reader.EndOfStream)
             {
+                //Getting the allergens into an array, making the path for the pics.
                 string[] line = reader.ReadLine().Split(';');
                 string[] allergens = line[3].Split(',');
                 string pic = $"{basePath}\\{line[1]}";
                 MenuItem newItem;
 
+                //Determining how many allergens are there. If null, do not display allergen.
                 switch (allergens.Length)
                 {
                     case 1:
@@ -94,6 +97,9 @@ namespace Frontend
 
         private void FilterCategory(object sender, MouseButtonEventArgs e)
         {
+            //Filtering the category on user's click. Getting all the textblocks and manipulating them.
+            //If the filter has been clicked, Reset the filters / styles.
+            //Category and textblock's text has to allign. !!!
             TextBlock textBlock = sender as TextBlock;
             string textBlockText = textBlock.Text;
 

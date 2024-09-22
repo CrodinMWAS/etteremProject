@@ -72,19 +72,6 @@ namespace Frontend
             set { SetValue(Allergen3Property, value); }
         }
 
-        private void ResponsiveText(object sender, SizeChangedEventArgs e)
-        {
-            double newFontSize = Math.Min(e.NewSize.Width / 20, e.NewSize.Height / 10) / 40;
-            lblFoodName.FontSize = 60 * newFontSize;
-            lblFoodDescription.FontSize = 32 * newFontSize;
-            lblAllergen1.FontSize = 40 * newFontSize;
-            lblAllergen2.FontSize = 40 * newFontSize;
-            lblAllergen3.FontSize = 40 * newFontSize;
-            lblPrice.FontSize = 60 * newFontSize;
-            btnOrder.FontSize = 45 * newFontSize;
-        }
-
-
         // FoodImage Property
         public static readonly DependencyProperty FoodImageSourceProperty =
             DependencyProperty.Register("FoodImageSource", typeof(ImageSource), typeof(FoodCard), new PropertyMetadata(null));
@@ -95,6 +82,7 @@ namespace Frontend
             set { SetValue(FoodImageSourceProperty, value); }
         }
 
+        // FoodDescription Property
         public static readonly DependencyProperty FoodDescriptionProperty =
             DependencyProperty.Register("FoodDescription", typeof(string), typeof(FoodCard), new PropertyMetadata(null));
 
@@ -102,6 +90,18 @@ namespace Frontend
         {
             get { return (string)GetValue(FoodDescriptionProperty); }
             set { SetValue(FoodDescriptionProperty, value); }
+        }
+
+        private void ResponsiveText(object sender, SizeChangedEventArgs e)
+        {
+            double newFontSize = Math.Min(e.NewSize.Width / 20, e.NewSize.Height / 10) / 40;
+            lblFoodName.FontSize = 60 * newFontSize;
+            lblFoodDescription.FontSize = 32 * newFontSize;
+            lblAllergen1.FontSize = 40 * newFontSize;
+            lblAllergen2.FontSize = 40 * newFontSize;
+            lblAllergen3.FontSize = 40 * newFontSize;
+            lblPrice.FontSize = 60 * newFontSize;
+            btnOrder.FontSize = 45 * newFontSize;
         }
     }
 }
