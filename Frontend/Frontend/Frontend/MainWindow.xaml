@@ -144,11 +144,12 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.1*"></RowDefinition>
                 <RowDefinition></RowDefinition>
+                <RowDefinition Height="0.2*"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
 
             <ScrollViewer Grid.Row="1">
-                <ItemsControl x:Name="cartItemControl" ItemsSource="{Binding MenuItems, ElementName=main}">
+                <ItemsControl x:Name="cartItemControl" ItemsSource="{Binding CartItems, ElementName=main}" Loaded="CartItemsControl_Loaded">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel/>
@@ -157,33 +158,17 @@
 
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="0.2*"></RowDefinition>
-                                    <RowDefinition></RowDefinition>
-                                    <RowDefinition Height="0.2*"></RowDefinition>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition></ColumnDefinition>
-                                    <ColumnDefinition></ColumnDefinition>
-                                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-
-                                <Image Grid.Column="0" Grid.Row="1" Source="{Binding Pic}" Width="100" Height="100"></Image>
-                                <TextBlock FontWeight="Bold" x:Name="tbCartItemName" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding Name}"></TextBlock>
-                                <TextBlock FontWeight="Bold" x:Name="tbCartItemPrice" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right"  Text="{Binding Price}"></TextBlock>
-                                <Button x:Name="btnExit" Grid.Column="2" Grid.Row="1" FontWeight="Bold" Content="X" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Red" Padding="10">
-                                    <Button.Style>
-                                        <Style TargetType="Button">
-                                            <Setter Property="Cursor" Value="Hand"/>
-                                        </Style>
-                                    </Button.Style>
-                                </Button>
-                            </Grid>
+                            <local:CartItem
+                            FoodImageSourceCart="{Binding Pic}"
+                            FoodNameTextCart="{Binding Name}"
+                            FoodPriceTextCart="{Binding Price}"
+                            ></local:CartItem>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </ScrollViewer>
+
+            <Button Content="Order" Grid.Row="2" Margin="5"></Button>
         </Grid>
         
     </Grid>

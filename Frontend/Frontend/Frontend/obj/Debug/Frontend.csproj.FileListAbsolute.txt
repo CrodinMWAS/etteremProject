@@ -48,3 +48,5 @@ D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\bin\Debug
 D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.ValueTuple.xml
 D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.csproj.CopyComplete
 D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\CartItem.g.cs
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\CartItem.baml

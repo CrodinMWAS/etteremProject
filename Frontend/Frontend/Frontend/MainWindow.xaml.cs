@@ -94,7 +94,7 @@ namespace Frontend
 
         }
 
-        private void FilterCategory(object sender, MouseButtonEventArgs e)
+        private void FilterCategory(object sender, RoutedEventArgs e)
         {
             //Filtering the category on user's click. Getting all the textblocks and manipulating them.
             //If the filter has been clicked, Reset the filters / styles.
@@ -134,6 +134,12 @@ namespace Frontend
                 lblSelectedCategory.Text = "All Categories";
                 itemsControl.ItemsSource = MenuItems;
             }
+
+            //This updates the available fooditems, so their buttons can be watched
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                ItemsControl_Loaded(itemsControl, new RoutedEventArgs());
+            }), System.Windows.Threading.DispatcherPriority.Render);
         }
 
         private void ItemsControl_Loaded(object sender, RoutedEventArgs e)
@@ -141,19 +147,45 @@ namespace Frontend
             for (int i = 0; i < itemsControl.Items.Count; i++)
             {
                 // Get the ContentPresenter for the item
-                var container = itemsControl.ItemContainerGenerator.ContainerFromIndex(i) as ContentPresenter;
+                ContentPresenter container = itemsControl.ItemContainerGenerator.ContainerFromIndex(i) as ContentPresenter;
 
                 if (container != null)
                 {
                     // Get the actual FoodCard from the ContentPresenter's content
-                    var foodCard = container.Content as MenuItem; // This gets your original item
+                    MenuItem foodCard = container.Content as MenuItem; // This gets your original item
 
                     // If you need to access the FoodCard, you might need to traverse the visual tree
-                    var foodCardVisual = FindVisualChild<FoodCard>(container);
+                    FoodCard foodCardVisual = FindVisualChild<FoodCard>(container);
                     if (foodCardVisual != null)
                     {
                         var item = itemsControl.Items[i] as MenuItem;
                         foodCardVisual.btnOrder.Click += (s, g) => AddToCart(item);
+                    }
+                }
+            }
+        }
+
+
+        //Needs to differenciate between different carItems using some sort of ID
+        private void CartItemsControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < cartItemControl.Items.Count; i++)
+            {
+                // Get the ContentPresenter for the item
+                ContentPresenter container = cartItemControl.ItemContainerGenerator.ContainerFromIndex(i) as ContentPresenter;
+
+                if (container != null)
+                {
+                    // Get the actual CartItem from the ContentPresenter's content
+                    MenuItem cartItem = container.Content as MenuItem; // This gets your original item
+
+                    // If you need to access the FoodCard, you might need to traverse the visual tree
+                    CartItem cartCardVisual = FindVisualChild<CartItem>(container);
+                    
+                    if (cartCardVisual != null)
+                    {
+                        var item = cartItemControl.Items[i] as MenuItem;
+                        cartCardVisual.btnExit.Click += (s, g) => RemoveFromCart(item);
                     }
                 }
             }
@@ -183,7 +215,18 @@ namespace Frontend
 
         private void AddToCart(MenuItem item)
         {
+            //This updates the available fooditems, so their buttons can be watched
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                CartItemsControl_Loaded(cartItemControl, new RoutedEventArgs());
+            }), System.Windows.Threading.DispatcherPriority.Render);
             CartItems.Add(item);
+        }
+
+        private void RemoveFromCart(MenuItem item)
+        {
+            MessageBox.Show("asd");
+            //CartItems.Remove(item);
         }
     }
 }

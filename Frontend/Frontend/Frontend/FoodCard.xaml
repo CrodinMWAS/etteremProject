@@ -20,7 +20,7 @@
             <RowDefinition Height="0.3*"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition Height="0.5*"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="0.5*"></RowDefinition>
@@ -31,10 +31,10 @@
         <Image Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Source="{Binding FoodImageSource, ElementName=root}" Stretch="Fill"></Image>
 
         <!--Food Name-->
-        <Label x:Name="lblFoodName" FontWeight="Bold" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" FontFamily="pack://application:,,,/Font/#Shrikhand" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Content="{Binding FoodNameText, ElementName=root}" Foreground="Goldenrod"></Label>
+        <TextBlock x:Name="tbFoodName" FontWeight="Bold" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" FontFamily="pack://application:,,,/Font/#Shrikhand" HorizontalAlignment="Center" VerticalAlignment="Top" Text="{Binding FoodNameText, ElementName=root}" Foreground="Goldenrod" TextWrapping="Wrap" TextAlignment="Center" Margin="0 20 0 0"></TextBlock>
         
         <!--Food Description-->
-        <TextBlock x:Name="lblFoodDescription" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" FontFamily="pack://application:,,,/Font/#Shrikhand" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Text="{Binding FoodDescription, ElementName=root}" Foreground="#EAEAEAEA"></TextBlock>
+        <TextBlock x:Name="tbFoodDescription" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" FontFamily="pack://application:,,,/Font/#Shrikhand" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Text="{Binding FoodDescription, ElementName=root}" Foreground="#EAEAEAEA"></TextBlock>
 
         <!--Allergens-->
         <Label x:Name="lblAllergen1" Grid.Row="4" Grid.Column="1" FontFamily="pack://application:,,,/Font/#Shrikhand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding Allergen1, ElementName=root}" Foreground="#EAEAEAEA"></Label>

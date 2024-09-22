@@ -25,6 +25,7 @@ namespace Frontend
             InitializeComponent();
         }
 
+        //Foodname Property
         public static readonly DependencyProperty FoodNameTextProperty =
         DependencyProperty.Register("FoodNameText", typeof(string), typeof(FoodCard), new PropertyMetadata("Food Name"));
 
@@ -95,8 +96,8 @@ namespace Frontend
         private void ResponsiveText(object sender, SizeChangedEventArgs e)
         {
             double newFontSize = Math.Min(e.NewSize.Width / 20, e.NewSize.Height / 10) / 40;
-            lblFoodName.FontSize = 60 * newFontSize;
-            lblFoodDescription.FontSize = 32 * newFontSize;
+            tbFoodName.FontSize = 60 * newFontSize;
+            tbFoodDescription.FontSize = 32 * newFontSize;
             lblAllergen1.FontSize = 40 * newFontSize;
             lblAllergen2.FontSize = 40 * newFontSize;
             lblAllergen3.FontSize = 40 * newFontSize;
