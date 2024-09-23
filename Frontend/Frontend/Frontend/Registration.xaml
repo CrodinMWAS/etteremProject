@@ -187,8 +187,20 @@
                 </Style>
             </Button.Style>
         </Button>
-
-        <Label x:Name="lbl_reg"  FontFamily="pack://application:,,,/Font/#shrikhand" Foreground="Green" Grid.Column="1" Grid.Row="6" Content="I already have an account" HorizontalAlignment="Center" MouseLeftButtonUp="Login"/>
-
+ 
+        <Label x:Name="lblLog" FontFamily="pack://application:,,,/Font/#shrikhand" Foreground="Green" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" MouseLeftButtonUp="Login">
+            <TextBlock Text="I already have an account" HorizontalAlignment="Center">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="TextDecorations" Value="Underline"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Label>
     </Grid>
 </Window>

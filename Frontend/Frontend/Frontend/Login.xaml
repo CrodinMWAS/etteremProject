@@ -103,6 +103,20 @@
             </Button.Style>
         </Button>
 
-        <Label x:Name="lblReg" FontFamily="pack://application:,,,/Font/#shrikhand" Foreground="Green" Grid.Column="1" Grid.Row="4" Content="I don't have an account" HorizontalAlignment="Center" MouseLeftButtonUp="Register"/>
+        <Label x:Name="lblReg" FontFamily="pack://application:,,,/Font/#shrikhand" Foreground="Green" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" MouseLeftButtonUp="Register">
+            <TextBlock Text="I don't have an account" HorizontalAlignment="Center">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="TextDecorations" Value="Underline"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Label>
+
     </Grid>
 </Window>
