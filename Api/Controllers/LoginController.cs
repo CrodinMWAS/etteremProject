@@ -1,67 +1,182 @@
-﻿using Api.Database;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using Api.Database;
 using Api.Models;
-using Api.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using MySql.Data.MySqlClient;
 
 namespace Api.Controllers
 {
-	[Route("api/v1/")]
-	[ApiController]
-	public class LoginController : ControllerBase
-	{
-		private readonly DatabaseContext _databaseContext;
-		private readonly PasswordService _passwordService;
-		private readonly TokenService _tokenService;
-		private readonly ILogger<LoginController> _logger;
+    [Route("api/v1/")]
+    [ApiController]
+    public class LoginController : ControllerBase
+    {
+        private readonly DatabaseContext _databaseContext;
+        private readonly IConfiguration _configuration;
 
-		public LoginController(DatabaseContext databaseContext, PasswordService passwordService, TokenService tokenService, ILogger<LoginController> logger)
-		{
-			_databaseContext = databaseContext;
-			_passwordService = passwordService;
-			_tokenService = tokenService;
-			_logger = logger;
-		}
+        public LoginController(DatabaseContext databaseContext, IConfiguration configuration)
+        {
+            _databaseContext = databaseContext;
+            _configuration = configuration;
+        }
 
-		[HttpPost("login")]
-		public async Task<IActionResult> Login(LoginModel model)
-		{
-			if (!ModelState.IsValid)
-			{
-				return BadRequest(ModelState);
-			}
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginModel request)
+        {
+            string ipAddress = HttpContext.Connection.RemoteIpAddress.ToString();
 
-			var user = await _databaseContext.Users.SingleOrDefaultAsync(x => x.Username == model.Username);
-			
-			if (user == null)
-			{
-				return Unauthorized("Invalid username or password");
-			}
-
-			// if (user.LockoutEnd.HasValue && user.LockoutEnd > DateTime.UtcNow)
-			// {
-			// 	return Unauthorized("Account is locked. Try again later!");
-			// }
-
-			if (!_passwordService.VerifyPassword(user, model.Password))
+            if (await IsIpTimedOutAsync(ipAddress))
             {
-				// user.FailedAttempts++;
-				// if (user.FailedAttempts >= 5)
-				// {
-				// 	user.LockoutEnd = DateTime.UtcNow.AddMinutes(5);
-				// }
-				// await _databaseContext.SaveChangesAsync();
-				_logger.LogWarning("Failed login attempt for user {Username} from IP {IP}", model.Username, HttpContext.Connection.RemoteIpAddress?.ToString());
-
-				return Unauthorized("Invalid username or password");
+                return BadRequest("Timed out for 5 minutes, try again later");
             }
 
-			// user.FailedAttempts = 0;
-			// user.LockoutEnd = null;
-			await _databaseContext.SaveChangesAsync();
+            var query = "SELECT Password FROM users WHERE UserName = @UserName";
+            string storedHash = null;
 
-			var token = _tokenService.GenerateJwtToken(user);
-			return Ok(new {Token = token});
+            var command = _databaseContext.Database.GetDbConnection().CreateCommand();
+            command.CommandText = query;
+            command.Parameters.Add(new MySqlParameter("@UserName", request.Username));
+
+            await _databaseContext.Database.OpenConnectionAsync();
+            var reader = await command.ExecuteReaderAsync();
+            if (await reader.ReadAsync())
+            {
+                storedHash = reader.GetString(0);
+            }
+            await _databaseContext.Database.CloseConnectionAsync();
+
+            if (storedHash != null && BCrypt.Net.BCrypt.Verify(request.Password, storedHash))
+            {
+                await ResetLoginAttemptsAsync(ipAddress);
+                string token = GenerateJWTToken(request.Username);
+                return Ok(new { Token = token });
+            }
+
+            await IncrementLoginAttemptsAsync(ipAddress);
+            return BadRequest("Invalid username or password");
         }
-	}
+
+        private async Task IncrementLoginAttemptsAsync(string ipAddress)
+        {
+            var query = "SELECT AttemptCount, LastAttempt FROM loginattempts WHERE IPAddress = @IPAddress";
+            int attemptCount = 0;
+            DateTime? lastAttempt = null;
+
+            var command = _databaseContext.Database.GetDbConnection().CreateCommand();
+            command.CommandText = query;
+            command.Parameters.Add(new MySqlParameter("@IPAddress", ipAddress));
+
+            await _databaseContext.Database.OpenConnectionAsync();
+            var reader = await command.ExecuteReaderAsync();
+            if (await reader.ReadAsync())
+            {
+                attemptCount = reader.GetInt32(0);
+                lastAttempt = reader.GetDateTime(1);
+            }
+            await _databaseContext.Database.CloseConnectionAsync();
+
+            if (lastAttempt != null && (DateTime.Now - lastAttempt.Value).TotalMinutes < 5)
+            {
+                attemptCount++;
+            }
+            else
+            {
+                attemptCount = 1;
+            }
+
+            if (attemptCount >= 5)
+            {
+                return; // Already banned, no need to update further
+            }
+
+            await UpdateLoginAttemptAsync(ipAddress, attemptCount);
+        }
+
+        private async Task UpdateLoginAttemptAsync(string ipAddress, int attemptCount)
+        {
+            var query = "UPDATE LoginAttempts SET AttemptCount = @AttemptCount, LastAttempt = @LastAttempt WHERE IPAddress = @IPAddress";
+            var command = _databaseContext.Database.GetDbConnection().CreateCommand();
+            command.CommandText = query;
+            command.Parameters.Add(new MySqlParameter("@AttemptCount", attemptCount));
+            command.Parameters.Add(new MySqlParameter("@LastAttempt", DateTime.Now));
+            command.Parameters.Add(new MySqlParameter("@IPAddress", ipAddress));
+
+            await _databaseContext.Database.OpenConnectionAsync();
+            await command.ExecuteNonQueryAsync();
+            await _databaseContext.Database.CloseConnectionAsync();
+        }
+
+        private async Task ResetLoginAttemptsAsync(string ipAddress)
+        {
+            var query = "DELETE FROM LoginAttempts WHERE IPAddress = @IPAddress";
+            var command = _databaseContext.Database.GetDbConnection().CreateCommand();
+            command.CommandText = query;
+            command.Parameters.Add(new MySqlParameter("@IPAddress", ipAddress));
+
+            await _databaseContext.Database.OpenConnectionAsync();
+            await command.ExecuteNonQueryAsync();
+            await _databaseContext.Database.CloseConnectionAsync();
+        }
+
+        private async Task<bool> IsIpTimedOutAsync(string ipAddress)
+        {
+            var query = "SELECT AttemptCount, LastAttempt FROM LoginAttempts WHERE IPAddress = @IPAddress";
+            int attemptCount = 0;
+            DateTime? lastAttempt = null;
+
+            var command = _databaseContext.Database.GetDbConnection().CreateCommand();
+            command.CommandText = query;
+            command.Parameters.Add(new MySqlParameter("@IPAddress", ipAddress));
+
+            await _databaseContext.Database.OpenConnectionAsync();
+            var reader = await command.ExecuteReaderAsync();
+            if (await reader.ReadAsync())
+            {
+                attemptCount = reader.GetInt32(0);
+                lastAttempt = reader.GetDateTime(1);
+            }
+            await _databaseContext.Database.CloseConnectionAsync();
+
+            if (attemptCount >= 5 && (DateTime.Now - lastAttempt.Value).TotalMinutes < 5)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private string GenerateJWTToken(string username)
+        {
+            var secretKey = _configuration["JwtSettings:SecretKey"];
+            var issuer = _configuration["JwtSettings:Issuer"];
+            var audience = _configuration["JwtSettings:Audience"];
+    
+            if (string.IsNullOrEmpty(secretKey))
+            {
+                throw new ArgumentNullException(nameof(secretKey), "JWT SecretKey is not configured properly.");
+            }
+            
+            var claims = new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, username),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            };
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(
+                issuer: issuer,
+                audience: audience,
+                claims: claims,
+                expires: DateTime.Now.AddMinutes(30),
+                signingCredentials: creds
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+    }
 }

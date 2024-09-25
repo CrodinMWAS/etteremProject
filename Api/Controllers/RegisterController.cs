@@ -12,12 +12,10 @@ namespace Api.Controllers
 	public class RegisterController : ControllerBase
 	{
 		private readonly DatabaseContext _databaseContext;
-		private readonly IConfiguration _configuration;
 
 		public RegisterController(DatabaseContext databaseContext, IConfiguration configuration)
 		{
 			_databaseContext = databaseContext;
-			_configuration = configuration;
 		}
 
 		[HttpPost("register")]
