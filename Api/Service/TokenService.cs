@@ -1,48 +1,59 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
-using Api.Models;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.IdentityModel.Tokens;
 
-namespace Api.Service
+namespace Api.Service;
+
+public class TokenService
 {
-	public class TokenService
-	{
-		private readonly IConfiguration _configuration;
+    private readonly IConfiguration _configuration;
 
-		public TokenService(IConfiguration configuration)
-		{
-			_configuration = configuration;
-		}
+    public TokenService(IConfiguration configuration)
+    {
+        _configuration = configuration;
+    }
+    
+    public string GenerateJWTToken(string username)
+    {
+        var secretKey = _configuration["JwtSettings:SecretKey"];
+        var issuer = _configuration["JwtSettings:Issuer"];
+        var audience = _configuration["JwtSettings:Audience"];
+    
+        if (string.IsNullOrEmpty(secretKey))
+        {
+            throw new ArgumentNullException(nameof(secretKey), "JWT SecretKey is not configured properly.");
+        }
 
-		public string GenerateJwtToken(User user)
-		{
-			var secretKey = _configuration["JwtSettings:SecretKey"];
-			if (string.IsNullOrEmpty(secretKey) || secretKey.Length < 16)
-			{
-				throw new ArgumentException("JWT Secret Key must be at least 256 bits (32 characters) long.");
-			}
+        var claims = new[]
+        {
+            new Claim(JwtRegisteredClaimNames.Sub, username),
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+        };
 
-			var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
-			var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
+        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-			var tokenDescriptor = new SecurityTokenDescriptor
-			{
-				Subject = new ClaimsIdentity(new[]
-				{
-					new Claim(ClaimTypes.Name, user.Username),
-					new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
-				}),
-				Expires = DateTime.UtcNow.AddHours(1),
-				SigningCredentials = credentials,
-				Issuer = _configuration["JwtSettings:Issuer"],
-				Audience = _configuration["JwtSettings:Audience"]
-			};
+        var token = new JwtSecurityToken(
+            issuer: issuer,
+            audience: audience,
+            claims: claims,
+            expires: DateTime.Now.AddMinutes(30),
+            signingCredentials: creds
+        );
 
-			var tokenHandler = new JwtSecurityTokenHandler();
-			var token = tokenHandler.CreateToken(tokenDescriptor);
-			return new JwtSecurityTokenHandler().WriteToken(token);
-		}
-	}
+        return new JwtSecurityTokenHandler().WriteToken(token);
+    }
+        
+    public string GenerateRefreshToken()
+    {
+        var randomNumber = new byte[32];
+        using (var rng = RandomNumberGenerator.Create())
+        {
+            rng.GetBytes(randomNumber);
+            return Convert.ToBase64String(randomNumber);
+        }
+    }
 }

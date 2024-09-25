@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Api.Helpers;
 
 namespace Api
 {
@@ -49,6 +50,8 @@ namespace Api
 			// Dependency injection for services
 			builder.Services.AddScoped<TokenService>();
 			builder.Services.AddScoped<PasswordService>();
+			builder.Services.AddScoped<LoginHelper>();
+			builder.Services.AddMemoryCache();
 
 			// Configure rate limiting services and other options
 			ConfigureServices(builder.Services, builder.Configuration);
