@@ -19,13 +19,13 @@ namespace Api
 
 			// Add services to the container.
 			builder.Services.AddControllers();
-
+ 
 			builder.Services.AddEndpointsApiExplorer();
 			builder.Services.AddSwaggerGen();
 
 			// Database configuration
 			builder.Services.AddDbContext<DatabaseContext>(options =>
-			options.UseMySQL("server = localhost; port = 3306; user = asd; password = root; database = restaurant"));
+				options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 			// Authentication and JWT configuration
 			builder.Services.AddAuthentication(options =>

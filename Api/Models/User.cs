@@ -4,33 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Api.Models
 {
-	[Table("users")]
 	public class User
 	{
-		[Key]
-		[DatabaseGenerated(DatabaseGeneratedOption.Identity)] //Auto Increment
-		[Column("userId")]
 		public int Id { get; set; }
-
-		[Required]
-		[Column("userName")]
 		public string Username { get; set; }
-
-		[Required]
-		[Column("email")]
 		public string Email { get; set; }
-
-
-		[Required]
-		[Column("password")]
 		public string PasswordHash { get; set; }
-
-		[Column("failedAttempts")]
-		public int FailedAttempts { get; set; }
-
-		[Column("lockoutEnd")]
-		public DateTime? LockoutEnd { get; set; }
-
-		public ICollection<Order> Orders { get; set; }
+		public string IsAdmin { get; set; }
 	}
 }
