@@ -9,6 +9,7 @@ namespace Frontend
 {
     public class CartElement : INotifyPropertyChanged
     {
+        //This watches the variable's value, if changed updates "DOM"
         public event PropertyChangedEventHandler PropertyChanged;
 
         private int _amount;
@@ -39,6 +40,7 @@ namespace Frontend
         public int Id { get => id; set => id = value; }
         public MenuItem Item { get => item; set => item = value; }
 
+        //This watches the variable's value, if changed updates "DOM"
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

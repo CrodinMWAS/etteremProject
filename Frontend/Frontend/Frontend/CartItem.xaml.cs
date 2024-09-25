@@ -73,7 +73,7 @@ namespace Frontend
         }
 
         public event EventHandler<CartElement> RemoveItemRequested;
-        private void btnExit_Click(object sender, RoutedEventArgs e)
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             // Raise the event, passing the relevant CartElement back to the parent
             RemoveItemRequested?.Invoke(this, DataContext as CartElement);
@@ -82,6 +82,7 @@ namespace Frontend
         public event EventHandler<CartElement> DecreaseAmountRequested;
         private void btnDecreaseAmount_Click(object sender, RoutedEventArgs e)
         {
+            // Raise the event, passing the relevant CartElement back to the parent
             DecreaseAmountRequested.Invoke(this, DataContext as CartElement);
         }
     }

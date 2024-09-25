@@ -24,9 +24,12 @@ namespace Frontend
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
+        //Menuitems for the menu
         public ObservableCollection<MenuItem> MenuItems { get; set; } = new ObservableCollection<MenuItem>();
+        //CartItems for the cart
         public ObservableCollection<CartElement> CartItems { get; set; } = new ObservableCollection<CartElement>();
         public int cartElementCounter = 0;
+        //This is for counting the sum of the Cart.
         public event PropertyChangedEventHandler PropertyChanged;
         double total = 0;
         protected void OnPropertyChanged(string propertyName)
@@ -47,6 +50,7 @@ namespace Frontend
                 }
             }
         }
+        //-------------------
         public MainWindow()
         {
             getMenu();
@@ -109,6 +113,17 @@ namespace Frontend
             lblSelectedCategory.FontSize = 15 * newFontSize;
 
             tbTotalInCart.FontSize = 15 * newFontSize;
+            btnOrder.FontSize = 10 * newFontSize;
+
+            tbRestaurantName.FontSize = 10 * newFontSize;
+            tbStreetAddress.FontSize = 6 * newFontSize;
+            tbCityStateZip.FontSize = 6 * newFontSize;
+            tbPhoneNumber.FontSize = 6 * newFontSize;
+            tbEmail.FontSize = 6 * newFontSize;
+            tbHoursTitle.FontSize = 10 * newFontSize;
+            tbWeekdayHours.FontSize = 6 * newFontSize;
+            tbFridaySaturdayHours.FontSize = 6 * newFontSize;
+            tbSundayHours.FontSize = 6 * newFontSize;
         }
 
         private void btn_login_Click(object sender, RoutedEventArgs e)
@@ -164,6 +179,8 @@ namespace Frontend
             }), System.Windows.Threading.DispatcherPriority.Render);
         }
 
+        //This is a function which runs everytime the menu refreshes (ON : initial, category change).
+        //Assings addToCart Function to each menuitem's order button.
         private void ItemsControl_Loaded(object sender, RoutedEventArgs e)
         {
             for (int i = 0; i < itemsControl.Items.Count; i++)
@@ -185,8 +202,8 @@ namespace Frontend
             }
         }
 
-
-        //Needs to differenciate between different carItems using some sort of ID
+        //This function runs everytiem when a cartitem is added to the cart.
+        //First removes, then adds both button's functions.
         private void CartItemsControl_Loaded(object sender, RoutedEventArgs e)
         {
             for (int i = 0; i < cartItemControl.Items.Count; i++)
@@ -203,6 +220,11 @@ namespace Frontend
                     {
                         // Create a local copy of the cartElement to avoid closure issue
                         CartElement item = cartItemControl.Items[i] as CartElement;
+                        // Unsubscribe first to prevent multiple subscriptions
+                        cartCardVisual.DecreaseAmountRequested -= CartCardVisual_DecreaseAmountRequested;
+                        cartCardVisual.RemoveItemRequested -= CartCardVisual_RemoveItemRequested;
+
+                        // Now subscribe the events
                         cartCardVisual.DecreaseAmountRequested += CartCardVisual_DecreaseAmountRequested;
                         cartCardVisual.RemoveItemRequested += CartCardVisual_RemoveItemRequested;
                     }
@@ -232,6 +254,8 @@ namespace Frontend
             return null;
         }
 
+        //This method adds items into the cart. If its already in it, it increases it's amount.
+        // Refreshes UI with CartItemsControl_Loaded
         private void AddToCart(MenuItem item)
         {
             //This updates the available fooditems, so their buttons can be watched
@@ -252,6 +276,7 @@ namespace Frontend
             }), System.Windows.Threading.DispatcherPriority.Render);
         }
 
+        //This either adds (add = true) or takes away (add = false) from the sum of the cartprices.
         private void UpdateCartTotal(string price, bool add)
         {
             double.TryParse(price.Substring(1), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double realPrice);
@@ -261,19 +286,23 @@ namespace Frontend
             }
             else
             {
-                MessageBox.Show($"{total} - {realPrice} = {total - realPrice}");
                 total -= realPrice;
             }
             CartTotal = $"Total : {total}";
         }
 
-        // Event handler in MainWindow to handle the item removal
+        // Removes Cartitem, removes price accordingly.
         private void CartCardVisual_RemoveItemRequested(object sender, CartElement e)
         {
-            UpdateCartTotal(e.Item.Price, false);
+            for (int i = 0; i != e.Amount - 1; i++)
+            {
+                UpdateCartTotal(e.Item.Price, false);
+            }
             CartItems.Remove(e);
+            UpdateCartTotal(e.Item.Price, false);
         }
 
+        //Decreases cartitem amount. Removes if neccesseary.
         private void CartCardVisual_DecreaseAmountRequested(object sender, CartElement e)
         {
             if (e.Amount > 1)
@@ -281,10 +310,6 @@ namespace Frontend
                 e.Amount--;
             } else if (e.Amount == 1)
             {
-                //for (int i = 0; i != e.Amount; i++)
-                //{
-                //    UpdateCartTotal(e.Item.Price, false);
-                //}
                 CartItems.Remove(e);
             }
             UpdateCartTotal(e.Item.Price, false);

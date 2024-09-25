@@ -140,7 +140,7 @@
         </Grid>
 
         <!--Grid For the Cart Section-->
-        <Grid Grid.Column="1" Grid.Row="1">
+        <Grid Grid.Column="1" Grid.Row="1" Margin="0 0 10 0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.1*"></RowDefinition>
                 <RowDefinition></RowDefinition>
@@ -149,7 +149,7 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
 
-            <ScrollViewer Grid.Row="1">
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden">
                 <Border BorderBrush="Black" 
                 BorderThickness="1" 
                 CornerRadius="5" 
@@ -176,7 +176,57 @@
             </ScrollViewer>
 
             <TextBlock x:Name="tbTotalInCart" FontFamily="pack://application:,,,/Font/#Shrikhand" Grid.Row="2" Margin="5" TextAlignment="Center" Text="{Binding CartTotal, ElementName=main}"></TextBlock>
-            <Button Content="Order" Grid.Row="3" Margin="5"></Button>
+            <Button x:Name="btnOrder" Content="Order" Grid.Row="3" Margin="5">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderBrush" Value="Green"/>
+                        <Setter Property="BorderThickness" Value="2"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border CornerRadius="5" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Green"/>
+                                <Setter Property="BorderBrush" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderBrush" Value="Green"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <WrapPanel Orientation="Vertical" Grid.Row="4" HorizontalAlignment="Center">
+                <!-- Restaurant Name -->
+                <TextBlock Name="tbRestaurantName" FontWeight="Bold" Margin="5" TextAlignment="Center" FontFamily="pack://application:,,,/Font/#Shrikhand" Foreground="Goldenrod">SnackDash</TextBlock>
+
+                <!-- Address -->
+                <TextBlock Name="tbStreetAddress" Margin="5" TextAlignment="Center" FontFamily="pack://application:,,,/Font/#Shrikhand">1205 Sunset Blvd</TextBlock>
+                <TextBlock Name="tbCityStateZip" Margin="5" TextAlignment="Center" FontFamily="pack://application:,,,/Font/#Shrikhand">Los Angeles, CA 90026</TextBlock>
+
+                <!-- Phone Number -->
+                <TextBlock Name="tbPhoneNumber" Margin="5" TextAlignment="Center" FontFamily="pack://application:,,,/Font/#Shrikhand">Phone: (213) 555-7325</TextBlock>
+
+                <!-- Email -->
+                <TextBlock Name="tbEmail" Margin="5" TextAlignment="Center" FontFamily="pack://application:,,,/Font/#Shrikhand">Email: contact@snackdash.com</TextBlock>
+
+                <!-- Hours of Operation -->
+                <TextBlock Name="tbHoursTitle" FontWeight="Bold" Margin="5" TextAlignment="Center" FontFamily="pack://application:,,,/Font/#Shrikhand" Foreground="DarkRed">Hours of Operation:</TextBlock>
+                <TextBlock Name="tbWeekdayHours" Margin="5" TextAlignment="Center" FontFamily="pack://application:,,,/Font/#Shrikhand">Monday - Thursday: 11:00 AM - 9:00 PM</TextBlock>
+                <TextBlock Name="tbFridaySaturdayHours" Margin="5" TextAlignment="Center" FontFamily="pack://application:,,,/Font/#Shrikhand">Friday - Saturday: 11:00 AM - 11:00 PM</TextBlock>
+                <TextBlock Name="tbSundayHours" Margin="5" TextAlignment="Center" FontFamily="pack://application:,,,/Font/#Shrikhand">Sunday: 12:00 PM - 8:00 PM</TextBlock>
+            </WrapPanel>
+
         </Grid>
         
     </Grid>
