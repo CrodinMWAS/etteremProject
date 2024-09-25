@@ -145,30 +145,38 @@
                 <RowDefinition Height="0.1*"></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="0.2*"></RowDefinition>
+                <RowDefinition Height="0.2*"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
 
             <ScrollViewer Grid.Row="1">
-                <ItemsControl x:Name="cartItemControl" ItemsSource="{Binding CartItems, ElementName=main}" Loaded="CartItemsControl_Loaded">
+                <Border BorderBrush="Black" 
+                BorderThickness="1" 
+                CornerRadius="5" 
+                Margin="5">
+                <ItemsControl x:Name="cartItemControl" ItemsSource="{Binding CartItems, ElementName=main}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <StackPanel/>
+                                <StackPanel></StackPanel>
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
 
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <local:CartItem
-                            FoodImageSourceCart="{Binding Pic}"
-                            FoodNameTextCart="{Binding Name}"
-                            FoodPriceTextCart="{Binding Price}"
-                            ></local:CartItem>
+                            <local:CartContent
+                            FoodImageSourceCart="{Binding Item.Pic}"
+                            FoodNameTextCart="{Binding Item.Name}"
+                            FoodPriceTextCart="{Binding Item.Price}"
+                            Amount="{Binding Amount}"
+                            ></local:CartContent>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
+                </Border>
             </ScrollViewer>
 
-            <Button Content="Order" Grid.Row="2" Margin="5"></Button>
+            <TextBlock x:Name="tbTotalInCart" FontFamily="pack://application:,,,/Font/#Shrikhand" Grid.Row="2" Margin="5" TextAlignment="Center" Text="{Binding CartTotal, ElementName=main}"></TextBlock>
+            <Button Content="Order" Grid.Row="3" Margin="5"></Button>
         </Grid>
         
     </Grid>

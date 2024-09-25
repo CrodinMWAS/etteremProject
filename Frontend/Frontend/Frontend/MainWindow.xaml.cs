@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -21,11 +22,31 @@ namespace Frontend
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
         public ObservableCollection<MenuItem> MenuItems { get; set; } = new ObservableCollection<MenuItem>();
-        public ObservableCollection<MenuItem> CartItems { get; set; } = new ObservableCollection<MenuItem>();
+        public ObservableCollection<CartElement> CartItems { get; set; } = new ObservableCollection<CartElement>();
+        public int cartElementCounter = 0;
+        public event PropertyChangedEventHandler PropertyChanged;
+        double total = 0;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
+        private string _cartTotal = "Total : ";
+        public string CartTotal
+        {
+            get { return _cartTotal; }
+            set
+            {
+                if (_cartTotal != value)
+                {
+                    _cartTotal = value;
+                    OnPropertyChanged(nameof(CartTotal)); // Notify the UI of the change
+                }
+            }
+        }
         public MainWindow()
         {
             getMenu();
@@ -87,6 +108,7 @@ namespace Frontend
 
             lblSelectedCategory.FontSize = 15 * newFontSize;
 
+            tbTotalInCart.FontSize = 15 * newFontSize;
         }
 
         private void btn_login_Click(object sender, RoutedEventArgs e)
@@ -151,11 +173,9 @@ namespace Frontend
 
                 if (container != null)
                 {
-                    // Get the actual FoodCard from the ContentPresenter's content
-                    MenuItem foodCard = container.Content as MenuItem; // This gets your original item
-
                     // If you need to access the FoodCard, you might need to traverse the visual tree
                     FoodCard foodCardVisual = FindVisualChild<FoodCard>(container);
+
                     if (foodCardVisual != null)
                     {
                         var item = itemsControl.Items[i] as MenuItem;
@@ -176,16 +196,15 @@ namespace Frontend
 
                 if (container != null)
                 {
-                    // Get the actual CartItem from the ContentPresenter's content
-                    MenuItem cartItem = container.Content as MenuItem; // This gets your original item
-
                     // If you need to access the FoodCard, you might need to traverse the visual tree
-                    CartItem cartCardVisual = FindVisualChild<CartItem>(container);
-                    
+                    CartContent cartCardVisual = FindVisualChild<CartContent>(container);
+
                     if (cartCardVisual != null)
                     {
-                        var item = cartItemControl.Items[i] as MenuItem;
-                        cartCardVisual.btnExit.Click += (s, g) => RemoveFromCart(item);
+                        // Create a local copy of the cartElement to avoid closure issue
+                        CartElement item = cartItemControl.Items[i] as CartElement;
+                        cartCardVisual.DecreaseAmountRequested += CartCardVisual_DecreaseAmountRequested;
+                        cartCardVisual.RemoveItemRequested += CartCardVisual_RemoveItemRequested;
                     }
                 }
             }
@@ -216,17 +235,59 @@ namespace Frontend
         private void AddToCart(MenuItem item)
         {
             //This updates the available fooditems, so their buttons can be watched
+            cartElementCounter++;
+            UpdateCartTotal(item.Price, true);
+            for (int i = 0; i != CartItems.Count; i++)
+            {
+                if (CartItems[i].Item.Name == item.Name)
+                {
+                    CartItems[i].Amount++;
+                    return;
+                }
+            }
+            CartItems.Add(new CartElement(cartElementCounter, item, 1));
             Dispatcher.BeginInvoke(new Action(() =>
             {
                 CartItemsControl_Loaded(cartItemControl, new RoutedEventArgs());
             }), System.Windows.Threading.DispatcherPriority.Render);
-            CartItems.Add(item);
         }
 
-        private void RemoveFromCart(MenuItem item)
+        private void UpdateCartTotal(string price, bool add)
         {
-            MessageBox.Show("asd");
-            //CartItems.Remove(item);
+            double.TryParse(price.Substring(1), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double realPrice);
+            if (add)
+            {
+                total += realPrice;
+            }
+            else
+            {
+                MessageBox.Show($"{total} - {realPrice} = {total - realPrice}");
+                total -= realPrice;
+            }
+            CartTotal = $"Total : {total}";
+        }
+
+        // Event handler in MainWindow to handle the item removal
+        private void CartCardVisual_RemoveItemRequested(object sender, CartElement e)
+        {
+            UpdateCartTotal(e.Item.Price, false);
+            CartItems.Remove(e);
+        }
+
+        private void CartCardVisual_DecreaseAmountRequested(object sender, CartElement e)
+        {
+            if (e.Amount > 1)
+            {
+                e.Amount--;
+            } else if (e.Amount == 1)
+            {
+                //for (int i = 0; i != e.Amount; i++)
+                //{
+                //    UpdateCartTotal(e.Item.Price, false);
+                //}
+                CartItems.Remove(e);
+            }
+            UpdateCartTotal(e.Item.Price, false);
         }
     }
 }

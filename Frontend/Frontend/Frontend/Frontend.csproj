@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CartElement.cs" />
     <Compile Include="CartItem.xaml.cs">
       <DependentUpon>CartItem.xaml</DependentUpon>
     </Compile>

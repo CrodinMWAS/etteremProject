@@ -50,3 +50,25 @@ D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug
 D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\CartItem.g.cs
 D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\CartItem.baml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\CartItem.g.cs
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\FoodCard.g.cs
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Buffers.dll
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Memory.dll
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.ValueTuple.dll
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Buffers.xml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Memory.xml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.ValueTuple.xml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\CartItem.baml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\FoodCard.baml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.csproj.Up2Date
