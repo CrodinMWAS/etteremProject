@@ -1,0 +1,74 @@
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.csproj.AssemblyReference.cache
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\MainWindow.g.cs
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\App.g.cs
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend_MarkupCompile.cache
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend_MarkupCompile.lref
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\Frontend.exe.config
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\Frontend.exe
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\Frontend.pdb
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\MainWindow.baml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.g.resources
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.Properties.Resources.resources
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.csproj.GenerateResource.cache
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.csproj.CoreCompileInputs.cache
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.exe
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.pdb
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\bin\Debug\Frontend.exe.config
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\bin\Debug\Frontend.exe
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\bin\Debug\Frontend.pdb
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.csproj.AssemblyReference.cache
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\MainWindow.g.cs
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\App.g.cs
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend_MarkupCompile.cache
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend_MarkupCompile.lref
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\MainWindow.baml
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.g.resources
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.Properties.Resources.resources
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.csproj.GenerateResource.cache
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.csproj.CoreCompileInputs.cache
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.exe
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.pdb
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\FoodCard.g.cs
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\FoodCard.baml
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Buffers.dll
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Memory.dll
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Numerics.Vectors.dll
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Text.Encodings.Web.dll
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.ValueTuple.dll
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Buffers.xml
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Memory.xml
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Numerics.Vectors.xml
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Text.Encodings.Web.xml
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.ValueTuple.xml
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.csproj.CopyComplete
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\CartItem.g.cs
+D:\Programming     _\Suli\13\etteremProject\Frontend\Frontend\Frontend\obj\Debug\CartItem.baml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\CartItem.g.cs
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\FoodCard.g.cs
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Buffers.dll
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Memory.dll
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.ValueTuple.dll
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Buffers.xml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Memory.xml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\bin\Debug\System.ValueTuple.xml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\CartItem.baml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\FoodCard.baml
+C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\Frontend.csproj.Up2Date
