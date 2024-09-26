@@ -24,7 +24,7 @@ public class DishController : ControllerBase
         try
             {
                 var dishes = new List<DishModel>();
-                var query = "SELECT d.DishId, d.DishName, d.Description, d.Allergens, d.Price, d.ImageLink, di.AmountNeeded, i.IngredientName, i.Unit, s.Quantity FROM Dishes d left join DishIngredients di on d.DishId = di.DishId\nleft join ingredients i on di.IngredientId = i.IngredientId left join Stock s on i.IngredientId = s.IngredientId";
+                var query = "SELECT d.DishId, d.DishName, d.Description, d.Allergens, d.Price, d.ImageLink, d.Category ,di.AmountNeeded, i.IngredientName, i.Unit, s.Quantity FROM Dishes d left join DishIngredients di on d.DishId = di.DishId left join ingredients i on di.IngredientId = i.IngredientId left join Stock s on i.IngredientId = s.IngredientId";
                 
                 var command = _databaseContext.Database.GetDbConnection().CreateCommand();
                 command.CommandText = query;
@@ -48,6 +48,7 @@ public class DishController : ControllerBase
                             Allergens = reader.IsDBNull(3) ? null : reader.GetString(3),
                             Price = reader.GetInt32(4),
                             ImageUrl = reader.GetString(5),
+                            Category = reader.GetString(6),
                             Ingredients = new List<IngredientModel>()
                         };
                         dishes.Add(dish);
@@ -55,10 +56,10 @@ public class DishController : ControllerBase
                     
                     dish.Ingredients.Add(new IngredientModel
                     {
-                        IngredientName = reader.GetString(7),
-                        AmountNeeded = reader.GetFloat(6),
-                        Unit = reader.GetString(8),
-                        InStock = reader.GetFloat(9)
+                        AmountNeeded = reader.GetDecimal(7), 
+                        IngredientName = reader.GetString(8),
+                        Unit = reader.IsDBNull(9) ? null : reader.GetString(9),    
+                        InStock = reader.GetDecimal(10) 
                     });
                 }
                 

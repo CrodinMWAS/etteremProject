@@ -11,6 +11,7 @@ public class DishModel
     public string Allergens { get; set; }
     public int Price { get; set; }
     public string ImageUrl { get; set; }
+    public string Category { get; set; }
     [NotMapped]
     public List<IngredientModel> Ingredients { get; set; }
 
