@@ -288,18 +288,21 @@ namespace Frontend
             {
                 total -= realPrice;
             }
+            if (total < 0)
+            {
+                total = 0;
+            }
             CartTotal = $"Total : {total}";
         }
 
         // Removes Cartitem, removes price accordingly.
         private void CartCardVisual_RemoveItemRequested(object sender, CartElement e)
         {
-            for (int i = 0; i != e.Amount - 1; i++)
+            for (int i = 0; i != e.Amount; i++)
             {
                 UpdateCartTotal(e.Item.Price, false);
             }
             CartItems.Remove(e);
-            UpdateCartTotal(e.Item.Price, false);
         }
 
         //Decreases cartitem amount. Removes if neccesseary.
