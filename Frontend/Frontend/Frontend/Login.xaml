@@ -71,7 +71,7 @@
             </PasswordBox.Resources>
         </PasswordBox>
 
-        <Button x:Name="btnLogin" FontFamily="pack://application:,,,/Font/#shrikhand"  Grid.Column="1" Grid.Row="3" FontSize="20" Margin="25" Content="Login" BorderBrush="Red">
+        <Button x:Name="btnLogin" FontFamily="pack://application:,,,/Font/#shrikhand"  Grid.Column="1" Grid.Row="3" FontSize="20" Margin="25" Content="Login" BorderBrush="Red" Click="BtnLoginClick">
             <Button.Style>
                 <Style TargetType="Button">
                     <Setter Property="Background" Value="Transparent"/>
