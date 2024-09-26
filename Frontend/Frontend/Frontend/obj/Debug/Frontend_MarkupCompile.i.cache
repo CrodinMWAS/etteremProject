@@ -9,12 +9,21 @@ Frontend
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\App.xaml
 3-900876792
 
 101962795161
 22-1355485110
 CartItem.xaml;FoodCard.xaml;MainWindow.xaml;
+=======
+C:\Users\Attila\source\repos\etteremProject1\Frontend\Frontend\Frontend\App.xaml
+31088911665
+
+8-1727730850
+13-38814620
+Login.xaml;MainWindow.xaml;Registration.xaml;
+>>>>>>> frontend/login
 
 True
 

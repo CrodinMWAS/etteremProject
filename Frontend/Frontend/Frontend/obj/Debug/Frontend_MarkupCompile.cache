@@ -4,17 +4,30 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\obj\Debug\
+=======
+D:\Programming     _\Suli\13\ads\etteremProject\Frontend\Frontend\Frontend\obj\Debug\
+>>>>>>> frontend/login
 Frontend
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 C:\Users\nagy.martin.mark\Documents\etteremProject\Frontend\Frontend\Frontend\App.xaml
 3-900876792
 
 941017040
 22-1355485110
 CartItem.xaml;FoodCard.xaml;MainWindow.xaml;
+=======
+D:\Programming     _\Suli\13\ads\etteremProject\Frontend\Frontend\Frontend\App.xaml
+31088911665
+
+7645458325
+13-38814620
+Login.xaml;MainWindow.xaml;Registration.xaml;
+>>>>>>> frontend/login
 
 False
 

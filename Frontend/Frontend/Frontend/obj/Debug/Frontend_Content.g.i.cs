@@ -8,6 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+<<<<<<< HEAD
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/snackdashlogo.png")]
+=======
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("hamburger.svg")]
+>>>>>>> frontend/login
 
 

@@ -1,0 +1,206 @@
+﻿<Window x:Class="Frontend.Registration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Frontend"
+        mc:Ignorable="d"
+        Title="Registration" Height="600" Width="400"
+        ResizeMode="NoResize">
+    <Grid Background="#eaeaea">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label FontSize="35" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="pack://application:,,,/Font/#shrikhand" Content="Registration"/>
+
+        <Label Grid.Column="1" Grid.Row="1" FontSize="15" FontFamily="pack://application:,,,/Font/#shrikhand" Content="Name"/>
+        <Label x:Name="err_name" Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Right" Foreground="Red" FontSize="10" Content=""/>
+        <TextBox x:Name="tb_name" Grid.Column="1" Grid.Row="1" Margin="0 25" FontWeight="ExtraBold" BorderThickness="3" Background="#333" VerticalContentAlignment="Center" Foreground="#eaeaea" BorderBrush="Green">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TextBox}">
+                                <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                    <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsFocused" Value="true">
+                                        <Setter Property="BorderBrush" TargetName="border" Value="GoldenRod"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <Label Grid.Column="1" Grid.Row="2" FontSize="15" FontFamily="pack://application:,,,/Font/#shrikhand" Content="Email Address"/>
+        <Label x:Name="err_email" Grid.Column="1" Grid.Row="2" HorizontalContentAlignment="Right" Foreground="Red" FontSize="10" Content=""/>
+        <TextBox x:Name="tb_email" Grid.Column="1" Grid.Row="2" Margin="0 25" FontWeight="ExtraBold" BorderThickness="3" Background="#333" VerticalContentAlignment="Center" Foreground="#eaeaea" BorderBrush="Green">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TextBox}">
+                                <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                    <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsFocused" Value="true">
+                                        <Setter Property="BorderBrush" TargetName="border" Value="GoldenRod"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <Label Grid.Column="1" Grid.Row="3" FontSize="15" FontFamily="pack://application:,,,/Font/#shrikhand" Content="Password"/>
+        <Label x:Name="err_password" Grid.Column="1" Grid.Row="3" HorizontalContentAlignment="Right" Foreground="Red" FontSize="10" Content=""/>
+        <PasswordBox x:Name="pb_password" 
+             Grid.Column="1" 
+             Grid.Row="3" 
+             Margin="0,25" 
+             BorderThickness="3" 
+             Background="#333" 
+             VerticalContentAlignment="Center" 
+             Foreground="#eaeaea" 
+             BorderBrush="Green">
+            <PasswordBox.Resources>
+                <Style TargetType="PasswordBox">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type PasswordBox}">
+                                <Border x:Name="border" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                Background="{TemplateBinding Background}" 
+                                CornerRadius="10" 
+                                SnapsToDevicePixels="True">
+                                    <ScrollViewer x:Name="PART_ContentHost" 
+                                          Focusable="false" 
+                                          HorizontalScrollBarVisibility="Hidden" 
+                                          VerticalScrollBarVisibility="Hidden" 
+                                          VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsFocused" Value="true">
+                                        <Setter Property="BorderBrush" TargetName="border" Value="GoldenRod"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </PasswordBox.Resources>
+        </PasswordBox>
+
+        <Label Grid.Column="1" Grid.Row="4" FontSize="15" FontFamily="pack://application:,,,/Font/#shrikhand" Content="Confirm Password"/>
+        <Label x:Name="err_confirmPassword" Grid.Column="1" Grid.Row="4" HorizontalContentAlignment="Right" Foreground="Red" FontSize="10" Content=""/>
+        <PasswordBox x:Name="pb_confirmPassword" 
+             Grid.Column="1" 
+             Grid.Row="4" 
+             Margin="0,25" 
+             BorderThickness="3" 
+             Background="#333" 
+             VerticalContentAlignment="Center" 
+             Foreground="#eaeaea" 
+             BorderBrush="Green">
+            <PasswordBox.Resources>
+                <Style TargetType="PasswordBox">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type PasswordBox}">
+                                <Border x:Name="border" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                Background="{TemplateBinding Background}" 
+                                CornerRadius="10" 
+                                SnapsToDevicePixels="True">
+                                    <ScrollViewer x:Name="PART_ContentHost" 
+                                          Focusable="false" 
+                                          HorizontalScrollBarVisibility="Hidden" 
+                                          VerticalScrollBarVisibility="Hidden" 
+                                          VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsFocused" Value="true">
+                                        <Setter Property="BorderBrush" TargetName="border" Value="GoldenRod"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </PasswordBox.Resources>
+        </PasswordBox>
+
+        <Button x:Name="btn_login" Grid.Column="1" Grid.Row="5" FontFamily="pack://application:,,,/Font/#shrikhand" FontSize="20" Margin="20" Content="Register" Click="btn_login_Click">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Foreground" Value="Goldenrod"/>
+                    <Setter Property="BorderBrush" Value="Red"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border CornerRadius="15" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Red"/>
+                            <Setter Property="BorderBrush" Value="Red"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderBrush" Value="Green"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+ 
+        <Label x:Name="lblLog" FontFamily="pack://application:,,,/Font/#shrikhand" Foreground="Green" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" MouseLeftButtonUp="Login">
+            <TextBlock Text="I already have an account" HorizontalAlignment="Center">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="TextDecorations" Value="Underline"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Label>
+    </Grid>
+</Window>
