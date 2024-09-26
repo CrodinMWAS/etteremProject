@@ -31,7 +31,7 @@ namespace Api.Controllers
 			string hashedPassword = BCrypt.Net.BCrypt.HashPassword(request.Password);
 
 			// Insert new user into the database
-			var query = "INSERT INTO users (UserName, Email, Password, isAdmin) VALUES (@UserName, @Email, @Password, @isAdmin)";
+			var query = "INSERT INTO users (UserName, Email, Password, IsAdmin) VALUES (@UserName, @Email, @Password, @IsAdmin)";
 			var command = _databaseContext.Database.GetDbConnection().CreateCommand();
 			command.CommandText = query;
 
@@ -39,7 +39,7 @@ namespace Api.Controllers
 			command.Parameters.Add(new MySqlParameter("@UserName", request.Username));
 			command.Parameters.Add(new MySqlParameter("@Password", hashedPassword));
 			command.Parameters.Add(new MySqlParameter("@Email", request.Email));
-			command.Parameters.Add(new MySqlParameter("@isAdmin", false));
+			command.Parameters.Add(new MySqlParameter("@IsAdmin", false));
 
 			await _databaseContext.Database.OpenConnectionAsync();
 			await command.ExecuteNonQueryAsync();
@@ -50,7 +50,7 @@ namespace Api.Controllers
 
 		private bool UserExists(string username)
 		{
-			var query = "SELECT 1 FROM users WHERE UserName = @username";
+			var query = "SELECT 1 FROM users WHERE UserName = @UserName";
 			bool userExists;
 
 			var command = _databaseContext.Database.GetDbConnection().CreateCommand();

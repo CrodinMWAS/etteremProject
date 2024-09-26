@@ -53,14 +53,6 @@ namespace Api
 			builder.Services.AddScoped<LoginHelper>();
 			builder.Services.AddMemoryCache();
 
-			// Configure rate limiting services and other options
-			ConfigureServices(builder.Services, builder.Configuration);
-
-			// Configure logging
-			builder.Logging.ClearProviders();
-			builder.Logging.AddConsole();
-			builder.Logging.AddDebug();
-
 			var app = builder.Build();
 
 			if (app.Environment.IsDevelopment())
@@ -77,16 +69,6 @@ namespace Api
 			app.MapControllers();
 
 			app.Run();
-		}
-
-		// Configure reate limiting
-		public static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
-		{
-			services.AddOptions();
-			services.AddMemoryCache();
-			services.Configure<IpRateLimitOptions>(configuration.GetSection("IpRateLimiting"));
-			services.AddInMemoryRateLimiting();
-			services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 		}
 	}
 }

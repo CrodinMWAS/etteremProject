@@ -9,5 +9,10 @@ namespace Api.Database
 		public DbSet<User> Users { get; set; }
 		public DbSet<DishModel> Dishes { get; set; }
 
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			modelBuilder.Entity<IngredientModel>().HasNoKey();	
+			base.OnModelCreating(modelBuilder);
+		}
 	}
 }

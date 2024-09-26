@@ -24,8 +24,7 @@ public class DishController : ControllerBase
         try
             {
                 var dishes = new List<DishModel>();
-                
-                var query = "SELECT DishId, DishName, Description, Allergens, Price, ImageLink FROM Dishes";
+                var query = "SELECT d.DishId, d.DishName, d.Description, d.Allergens, d.Price, d.ImageLink, di.AmountNeeded, i.IngredientName, i.Unit, s.Quantity FROM Dishes d left join DishIngredients di on d.DishId = di.DishId\nleft join ingredients i on di.IngredientId = i.IngredientId left join Stock s on i.IngredientId = s.IngredientId";
                 
                 var command = _databaseContext.Database.GetDbConnection().CreateCommand();
                 command.CommandText = query;
@@ -35,17 +34,32 @@ public class DishController : ControllerBase
                 var reader = await command.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
                 {
-                    var dish = new DishModel
-                    {
-                        DishId = reader.GetInt32(0),
-                        DishName = reader.GetString(1),
-                        Description = reader.GetString(2),
-                        Allergens = reader.IsDBNull(3) ? null : reader.GetString(3),
-                        Price = reader.GetInt32(4),
-                        ImageUrl = reader.GetString(5)
-                    };
+                    int dishId = reader.GetInt32(0);
+                    
+                    var dish = dishes.FirstOrDefault(d => d.DishId == dishId);
 
-                    dishes.Add(dish);
+                    if (dish == null)
+                    {
+                        dish = new DishModel
+                        {
+                            DishId = dishId,
+                            DishName = reader.GetString(1),
+                            Description = reader.GetString(2),
+                            Allergens = reader.IsDBNull(3) ? null : reader.GetString(3),
+                            Price = reader.GetInt32(4),
+                            ImageUrl = reader.GetString(5),
+                            Ingredients = new List<IngredientModel>()
+                        };
+                        dishes.Add(dish);
+                    }
+                    
+                    dish.Ingredients.Add(new IngredientModel
+                    {
+                        IngredientName = reader.GetString(7),
+                        AmountNeeded = reader.GetFloat(6),
+                        Unit = reader.GetString(8),
+                        InStock = reader.GetFloat(9)
+                    });
                 }
                 
                 await _databaseContext.Database.CloseConnectionAsync();
