@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Net.Http;
 using System.Net.Mail;
 using System.Text;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
@@ -39,7 +42,7 @@ namespace Frontend
         }
 
         private void ResetFields()
-        { 
+        {
             tb_name.BorderBrush = Brushes.Black;
             err_name.Content = "";
             tb_email.BorderBrush = Brushes.Black;
@@ -50,28 +53,28 @@ namespace Frontend
             err_confirmPassword.Content = "";
         }
 
-        private void btn_login_Click(object sender, RoutedEventArgs e)
+        private async void btn_login_Click(object sender, RoutedEventArgs e)
         {
             ResetFields();
             int[] errors = { 0, 0, 0, 0 };
             if (tb_name.Text == "")
-            { 
+            {
                 errors[0] = 1;
             }
             if (tb_email.Text == "")
-            { 
+            {
                 errors[1] = 1;
             }
             if (!Regex.IsMatch(tb_email.Text, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase))
             {
-                errors[1] = 2; 
+                errors[1] = 2;
             }
             if (pb_password.Password == "")
-            { 
+            {
                 errors[2] = 1;
             }
             if (pb_confirmPassword.Password == "")
-            { 
+            {
                 errors[3] = 1;
             }
             if (pb_confirmPassword.Password != pb_password.Password)
@@ -111,11 +114,43 @@ namespace Frontend
 
             if (errorCount == 0)
             {
-                LoadLogin();
-            }
-            else
-            {
-                MessageBox.Show("Error");
+                HttpClient httpClient = new HttpClient();
+                try
+                {
+                    httpClient.BaseAddress = new Uri(ConfigurationManager.AppSettings["ApiBaseAddress"]);
+                }
+                
+                catch {
+                    MessageBox.Show("Server connection failure");
+                }
+                if (tb_name.Text.Length > 0 || pb_password.Password.Length > 0)
+                {
+
+                    var data = new
+                    {
+                        Username = tb_name.Text,
+                        Email = tb_email.Text,
+                        Password = pb_password.Password
+                    };
+                    var content = new StringContent(JsonSerializer.Serialize(data), Encoding.UTF8, "application/json");
+
+                    try
+                    {
+                        HttpResponseMessage httpResponseMessage = await httpClient.PostAsync("register", content);
+                        HttpResponseMessage resp = httpResponseMessage;
+                        var jsonResp = await resp.Content.ReadAsStringAsync();  
+                        LoadLogin();
+                    }
+
+                    catch
+                    {
+                        MessageBox.Show("Registration failure");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+                }
             }
         }
     }
