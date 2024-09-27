@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,6 +14,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -55,6 +57,33 @@ namespace Frontend
         {
             getMenu();
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Storyboard fadeInStoryboard = (Storyboard)this.FindResource("FadeInAnimation");
+            fadeInStoryboard.Begin(this);
+        }
+
+        private void Image_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            DoubleAnimation fadeOutAnimation = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.5));
+            fadeOutAnimation.Completed += (s, _) =>
+            {
+                Index index = new Index();
+                index.Show();
+                Thread closeThread = new Thread(() =>
+                {
+                    Thread.Sleep(1000); // Delay for 1 second
+                                        // Use Dispatcher to close the window on the UI thread
+                    Dispatcher.Invoke(() =>
+                    {
+                        this.Close();
+                    });
+                });
+                closeThread.Start();
+            };
+            this.BeginAnimation(Window.OpacityProperty, fadeOutAnimation);
         }
 
         public void getMenu()
@@ -128,7 +157,8 @@ namespace Frontend
 
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
-
+            Login login = new Login();
+            login.ShowDialog();
         }
 
         private void FilterCategory(object sender, RoutedEventArgs e)
@@ -320,7 +350,7 @@ namespace Frontend
 
         private void btn_exit_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Application.Current.Shutdown();
         }
     }
 }

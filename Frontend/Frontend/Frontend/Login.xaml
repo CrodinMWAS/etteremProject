@@ -28,7 +28,7 @@
         <TextBox x:Name="tb_name"  Grid.Column="1" Grid.Row="1" Margin="0 30" FontWeight="ExtraBold" BorderThickness="3" Background="#333" VerticalContentAlignment="Center" Foreground="#eaeaea" BorderBrush="Green">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="10"/> 
+                    <Setter Property="CornerRadius" Value="10"/>
                 </Style>
                 <Style TargetType="TextBox">
                     <Setter Property="Template">
@@ -37,7 +37,7 @@
                                 <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
                                     <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                                 </Border>
-                                <ControlTemplate.Triggers> 
+                                <ControlTemplate.Triggers>
                                     <Trigger Property="IsFocused" Value="true">
                                         <Setter Property="BorderBrush" TargetName="border" Value="GoldenRod"/>
                                     </Trigger>
@@ -46,9 +46,9 @@
                         </Setter.Value>
                     </Setter>
                 </Style>
-            </TextBox.Resources> 
+            </TextBox.Resources>
         </TextBox>
-        
+
         <Label x:Name="lblPassword" Grid.Column="1" FontFamily="pack://application:,,,/Font/#shrikhand" Grid.Row="2" FontSize="15" Content="Password"/>
         <PasswordBox x:Name="pb_password" Grid.Column="1" Grid.Row="2" Margin="0,30" BorderThickness="3" Background="#333" VerticalContentAlignment="Center" Foreground="#eaeaea" BorderBrush="Green">
             <PasswordBox.Resources>
@@ -57,7 +57,7 @@
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type PasswordBox}">
                                 <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="10" SnapsToDevicePixels="True">
-                                    <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" VerticalAlignment="Center"/> 
+                                    <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" VerticalAlignment="Center"/>
                                 </Border>
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsFocused" Value="true">

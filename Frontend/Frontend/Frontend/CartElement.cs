@@ -28,7 +28,7 @@ namespace Frontend
 
         int id;
         MenuItem item;
-        int amount;
+        //int amount;
 
         public CartElement(int id, MenuItem item, int amount)
         {

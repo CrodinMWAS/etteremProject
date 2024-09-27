@@ -33,7 +33,7 @@ namespace Frontend
         {
             this.Close();
             Registration registration = new Registration();
-            registration.Show(); 
+            registration.Show();
         }
 
         private async void BtnLoginClick(object sender, RoutedEventArgs e)
@@ -43,7 +43,7 @@ namespace Frontend
             if (tb_name.Text.Length > 0 || pb_password.Password.Length > 0)
             {
 
-                var data = new 
+                var data = new
                 {
                     Username = tb_name.Text,
                     Password = pb_password.Password
@@ -57,14 +57,14 @@ namespace Frontend
                     var jsonResp = await resp.Content.ReadAsStringAsync();
                     MessageBox.Show(jsonResp.ToString());
                 }
-                
+
                 catch
                 {
                     MessageBox.Show("Login failure");
                 }
-                
-                
-            } 
+
+
+            }
         }
     }
 }
