@@ -3,7 +3,7 @@ This project was built by team Bubbi Guppik:
 - Project Lead: Nagy Martin Márk
 - Backend Dev: Prém Ferenc
 - Frontend Dev: Kun Attila
-- SQL Dev: Gál Bálint
+- SQL Dev/Git master: Gál Bálint
 
 Check out our [Jira!](https://crodin.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog) (Members Only)
 
