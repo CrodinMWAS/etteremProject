@@ -1,31 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fercs\\Desktop\\etteremProject\\Api\\Api.csproj": {}
+    "/Users/premferenc/Desktop/etteremProject/Api/Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fercs\\Desktop\\etteremProject\\Api\\Api.csproj": {
+    "/Users/premferenc/Desktop/etteremProject/Api/Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fercs\\Desktop\\etteremProject\\Api\\Api.csproj",
+        "projectUniqueName": "/Users/premferenc/Desktop/etteremProject/Api/Api.csproj",
         "projectName": "Api",
-        "projectPath": "C:\\Users\\fercs\\Desktop\\etteremProject\\Api\\Api.csproj",
-        "packagesPath": "C:\\Users\\fercs\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fercs\\Desktop\\etteremProject\\Api\\obj\\",
+        "projectPath": "/Users/premferenc/Desktop/etteremProject/Api/Api.csproj",
+        "packagesPath": "/Users/premferenc/.nuget/packages/",
+        "outputPath": "/Users/premferenc/Desktop/etteremProject/Api/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\fercs\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/premferenc/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -115,7 +110,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

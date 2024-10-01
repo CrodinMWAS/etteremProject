@@ -31,10 +31,6 @@ namespace Api.Controllers
         {
             string ipAddress = HttpContext.Connection.RemoteIpAddress.ToString();
 
-            if (ipAddress == "::1")
-            {
-                ipAddress = "127.0.0.1"; 
-            }
             if (await _loginHelper.IsIpTimedOutAsync(ipAddress))
             {
                 return BadRequest("Timed out for 5 minutes, try again later");
@@ -74,7 +70,6 @@ namespace Api.Controllers
             }
 
             await _loginHelper.IncrementLoginAttemptsAsync(ipAddress);
-            _databaseContext.SaveChangesAsync();
             return BadRequest("Invalid username or password");
         }
     }

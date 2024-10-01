@@ -32,44 +32,24 @@ public class LoginHelper
             }
             await _databaseContext.Database.CloseConnectionAsync();
 
-            if (lastAttempt == null)
-            {
-                // New IP, insert into the table
-                await InsertLoginAttemptAsync(ipAddress, 1);  // First failed attempt
-                return;
-            }
-
-            if ((DateTime.Now - lastAttempt.Value).TotalMinutes < 5)
+            if (lastAttempt != null && (DateTime.Now - lastAttempt.Value).TotalMinutes < 5)
             {
                 attemptCount++;
             }
             else
             {
-                attemptCount = 1;  // Reset count after 5 minutes
+                attemptCount = 1;
             }
 
             if (attemptCount >= 5)
             {
-                // Lock the IP and no further action
                 return;
             }
 
             await UpdateLoginAttemptAsync(ipAddress, attemptCount);
         }
         
-        public async Task InsertLoginAttemptAsync(string ipAddress, int attemptCount)
-        {
-            var query = "INSERT INTO LoginAttempts (IPAddress, AttemptCount, LastAttempt) VALUES (@IPAddress, @AttemptCount, @LastAttempt)";
-            var command = _databaseContext.Database.GetDbConnection().CreateCommand();
-            command.CommandText = query;
-            command.Parameters.Add(new MySqlParameter("@IPAddress", ipAddress));
-            command.Parameters.Add(new MySqlParameter("@AttemptCount", attemptCount));
-            command.Parameters.Add(new MySqlParameter("@LastAttempt", DateTime.Now));
-
-            await _databaseContext.Database.OpenConnectionAsync();
-            await command.ExecuteNonQueryAsync();
-            await _databaseContext.Database.CloseConnectionAsync();
-        } 
+        
 
         public async Task UpdateLoginAttemptAsync(string ipAddress, int attemptCount)
         {
