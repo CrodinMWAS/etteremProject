@@ -322,7 +322,7 @@ namespace Frontend
             {
                 total = 0;
             }
-            CartTotal = $"Total : {total}";
+            CartTotal = $"Total : ${total}";
         }
 
         // Removes Cartitem, removes price accordingly.
